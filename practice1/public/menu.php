@@ -1,7 +1,7 @@
 <div class="layui-side layui-side-menu">
     <div class="layui-side-scroll">
         <div class="layui-logo" lay-href="home/console.html">
-            <span>layuiAdmin</span>
+            <span>訂購系統</span>
         </div>
 
         <ul class="layui-nav layui-nav-tree" lay-shrink="all" id="LAY-system-side-menu"
@@ -20,6 +20,23 @@
                     </dd>
                     <dd data-name="console">
                         <a lay-href="home/homepage2.html">主页二</a>
+                    </dd>
+                </dl>
+            </li>
+            <li data-name="dealer" class="layui-nav-item">
+                <a href="javascript:;" lay-tips="主页" lay-direction="2">
+                    <i class="layui-icon layui-icon-template"></i>
+                    <cite>經銷商</cite>
+                </a>
+                <dl class="layui-nav-child">
+                    <dd data-name="console">
+                        <a lay-href="home/console.html">账号管理</a>
+                    </dd>
+                    <dd data-name="console">
+                        <a lay-href="home/homepage1.html">订单管理</a>
+                    </dd>
+                    <dd data-name="console">
+                        <a lay-href="home/homepage2.html">下订单</a>
                     </dd>
                 </dl>
             </li>
