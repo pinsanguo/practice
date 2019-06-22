@@ -16,6 +16,7 @@
         <div class="layui-body" id="LAY_app_body">
             <div class="layadmin-tabsbody-item layui-show">
                 <iframe src="console.php" frameborder="0" class="layadmin-iframe"></iframe>
+<!--                <iframe src="/public/views/home/console.html" frameborder="0" class="layadmin-iframe"></iframe>-->
             </div>
         </div>
 
