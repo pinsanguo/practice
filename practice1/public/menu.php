@@ -30,10 +30,16 @@
                 </a>
                 <dl class="layui-nav-child">
                     <dd data-name="console">
-                        <a lay-href="home/console.html">账号管理</a>
+                        <a lay-href="dealerUser.php">经销商管理</a>
                     </dd>
                     <dd data-name="console">
-                        <a lay-href="home/homepage1.html">订单管理</a>
+                        <a lay-href="dealerUserEdit.php">編輯經銷商</a>
+                    </dd>
+                    <dd data-name="console">
+                        <a lay-href="dealerUserAdd.php">新增经销商</a>
+                    </dd>
+                    <dd data-name="console">
+                        <a lay-href="dealerUserLogin.php">登陸經銷商後台</a>
                     </dd>
                     <dd data-name="console">
                         <a lay-href="home/homepage2.html">下订单</a>
