@@ -46,6 +46,29 @@
                     </dd>
                 </dl>
             </li>
+            <li data-name="dealer" class="layui-nav-item">
+                <a href="javascript:;" lay-tips="主页" lay-direction="2">
+                    <i class="layui-icon layui-icon-template"></i>
+                    <cite>管理員</cite>
+                </a>
+                <dl class="layui-nav-child">
+                    <dd data-name="console">
+                        <a lay-href="adminLogin.php">管理員登錄系統</a>
+                    </dd>
+                    <dd data-name="console">
+                        <a lay-href="partsList.php">零件列表</a>
+                    </dd>
+                    <dd data-name="console">
+                        <a lay-href="dealerUserAdd.php">新增经销商</a>
+                    </dd>
+                    <dd data-name="console">
+                        <a lay-href="dealerUserLogin.php">登陸經銷商後台</a>
+                    </dd>
+                    <dd data-name="console">
+                        <a lay-href="home/homepage2.html">下订单</a>
+                    </dd>
+                </dl>
+            </li>
             <li data-name="component" class="layui-nav-item">
                 <a href="javascript:;" lay-tips="组件" lay-direction="2">
                     <i class="layui-icon layui-icon-component"></i>

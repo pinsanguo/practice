@@ -35,7 +35,7 @@ $result2 = mysqli_query($conn, $sql1);
                         </p>
                     </a>
                     <div class="layadmin-address">
-                        <a href="javascript:;">
+                        <a href="dealerUserEdit.php?dealerId=<?php echo $row['dealerID'];?>">
                             <strong>經銷商ID:<?php echo $row['dealerID'];?></strong>
                             <br>
                             經銷商名稱:<?php echo $row['name'];?>

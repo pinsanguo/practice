@@ -1,0 +1,13 @@
+<?php
+$arr=[
+    [
+        'partNumber'=>1,
+        'partName'=>'partName',
+        'stockQuantity'=>'stockQuantity',
+        'stockPrice'=>'stockPrice',
+        'email'=>'email',
+        'stockStatus'=>'stockStatus',
+    ],
+];
+die(json_encode(['data'=>$arr,'code'=>0]));
+?>
