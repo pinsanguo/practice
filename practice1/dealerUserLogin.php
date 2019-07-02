@@ -14,7 +14,7 @@ if(!empty($_POST['username'])){
             }
         }
     }else{
-        die(json_encode(['msg'=>'請輸入正確密碼','status'=>'error',]));
+        die(json_encode(['msg'=>'暂无该经销商','status'=>'error',]));
     }
 }
 ?>
