@@ -43,7 +43,7 @@
                             window.location.href=goUrl;
                         });
                     }else{
-                        layer.alert(data.msg, {
+                        layer.alert(data.msg,{
                               title:'添加結果'
                         });
                     }

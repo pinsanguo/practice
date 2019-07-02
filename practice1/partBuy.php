@@ -1,20 +1,26 @@
 <?php
+session_start();
+if(empty($_SESSION['userRole']) || $_SESSION['userRole']!='dealer' || empty($_SESSION['dealerID']) || empty($_SESSION['dealAddress'])){
+    //未獲取到經銷商ID信息，重新登陸
+    header('location:dealerUserLogin.php');
+}
 require_once('./public/conf.php');
 if(!empty($_POST)){
     $post=$_POST;
     //入庫order表與orderPart表
-//     orderID
-    $dealerID=0;
+    $dealerID=$_SESSION['dealerID'];
+    if(empty($dealerID)){
+        die(json_encode(['msg' => '未獲取到經銷商ID,請重新登陸.', 'status' => 'ok',]));
+    }
     $orderDate=date('Y-m-d H:i:s');
     $sql2 = "INSERT INTO orders (dealerID,orderDate,deliveryAddress,status)
     VALUES ('".$dealerID."','".$orderDate."','".$post['deliveryAddress']."',0)";
     $status1=mysqli_query($conn, $sql2);
-    print_r($status1);die();
+    $orderID=mysqli_insert_id($conn);
     $sql3 = "INSERT INTO orderpart (orderID,partNumber,quantity,price)
-    VALUES ('".$dealerID."','".$post['partNumber']."','".$post['number']."','".$post['stockPrice']."')";
-    $status1=mysqli_query($conn, $sql3);
-    if (mysqli_query($conn, $sql2)){
-        die(json_encode(['msg' => 'success', 'status' => 'ok',]));
+    VALUES ('".$orderID."','".$post['partNumber']."','".$post['number']."','".$post['stockPrice']."')";
+    if (mysqli_query($conn, $sql3)){
+        die(json_encode(['msg' => '訂單創建成功', 'status' => 'ok',]));
     }
 }
 if(!empty($_GET['partNumber'])){
@@ -22,7 +28,7 @@ if(!empty($_GET['partNumber'])){
     $sql1 = "SELECT * FROM part where partNumber = ".$partNumber;
     $result1 = mysqli_query($conn, $sql1);
     $num_rows = mysqli_num_rows($result1);
-    $adress='';
+    $adress=$_SESSION['dealAddress'];
 }else{
     echo "加载失败";die();
 }
@@ -74,28 +80,23 @@ if(!empty($_GET['partNumber'])){
     }
     ?>
 </div>
-
-<script src="/public/layuiadmin/layui/layui.js"></script>
+<?php include_once('./public/footer.php');?>
 <script>
-    layui.config({
-        base: '/public/layuiadmin/' //静态资源所在路径
-    }).extend({
-        index: 'lib/index' //主入口模块
-    }).use(['index', 'form'], function () {
+    layui.use('form', function(){
         var $ = layui.$
-            , form = layui.form;
-
+            ,form = layui.form;
         //监听提交
-        form.on('submit(partsView)', function (data) {
+        form.on('submit(partsView)', function(data){
             var field = data.field; //获取提交的字段
             var index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
 
             //提交 Ajax 成功后，关闭当前弹层并重载表格
             //$.ajax({});
-            // parent.layui.table.reload('LAY-app-content-list'); //重载表格
-            // parent.layer.close(index); //再执行关闭
+            sendAjax(field,'partBuy.php','');
+            // parent.layui.table.reload('partsList'); //重载表格
+            setTimeout(function (){
+                // parent.layer.close(index); //再执行关闭
+            },2500);
         });
-    })
+    });
 </script>
-</body>
-</html>

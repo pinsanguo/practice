@@ -8,6 +8,12 @@ if(!empty($_POST['email'])){
         while($row = mysqli_fetch_assoc($result2)) {
             $password=$row['password'];
             if($password == $post['password']){
+                //登陸成功
+                session_start();
+                $_SESSION['userRole']='admin';
+                $_SESSION['email']=$row['email'];
+                $_SESSION['firstName']=$row['firstName'];
+                $_SESSION['lastName']=$row['lastName'];
                 die(json_encode(['msg'=>'登陸系統成功','status'=>'ok',]));
             }else{
                 die(json_encode(['msg'=>'請輸入正確密碼','status'=>'error',]));

@@ -1,4 +1,9 @@
 <?php
+session_start();
+if(empty($_SESSION['userRole']) || $_SESSION['userRole']!='dealer' || empty($_SESSION['dealerID'])){
+    //未獲取到經銷商ID信息，重新登陸
+    header('location:dealerUserLogin.php');
+}
 require_once('./public/conf.php');
 $sql1 = "SELECT * FROM part where stockStatus = 1 and stockQuantity>0";
 $result1 = mysqli_query($conn, $sql1);

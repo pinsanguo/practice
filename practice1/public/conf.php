@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
 $username = "root";
-$password = "1234";
+$password = "root";
 $dbname = "practice1";
 // 创建连接
 $conn = mysqli_connect($servername, $username, $password, $dbname);

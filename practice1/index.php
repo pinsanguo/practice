@@ -1,3 +1,9 @@
+<?php
+session_start();
+if(empty($_SESSION['userRole']) || $_SESSION['userRole']!='admin'){
+    header('location:adminLogin.php');
+}
+?>
 <?php include_once('./public/header.php');?>
 <div id="LAY_app">
     <div class="layui-layout layui-layout-admin">

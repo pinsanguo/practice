@@ -8,7 +8,13 @@ if(!empty($_POST['username'])){
         while($row = mysqli_fetch_assoc($result2)) {
             $password=$row['password'];
             if($password == $post['password']){
-                die(json_encode(['msg'=>'success','status'=>'ok',]));
+                //登陸成功
+                session_start();
+                $_SESSION['userRole']='dealer';
+                $_SESSION['dealerID']=$row['dealerID'];
+                $_SESSION['dealName']=$row['name'];
+                $_SESSION['dealAddress']=$row['address'];
+                die(json_encode(['msg'=>'登陸成功','status'=>'ok',]));
             }else{
                 die(json_encode(['msg'=>'請輸入正確密碼','status'=>'error',]));
             }
@@ -92,7 +98,7 @@ if(!empty($_POST['username'])){
     //提交
     form.on('submit(LAY-user-login-submit)', function(obj){
         var field = obj.field;
-        sendAjax(field,'dealerUserLogin.php','/index.php');
+        sendAjax(field,'dealerUserLogin.php','/dealer.php');
     });
   });
 </script>
@@ -107,7 +113,7 @@ if(!empty($_POST['username'])){
                 dataType:'json',
                 success:function(data){
                     if(data.status == 'ok'){
-                        layer.msg('注册成功',{
+                        layer.msg(data.msg,{
                             offset: '15px'
                             ,icon: 1
                             ,time: 1000

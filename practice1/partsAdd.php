@@ -3,8 +3,10 @@ if(!empty($_POST['partName'])){
     $post=$_POST;
     require_once('./public/conf.php');
     $email='';
+    $email='karasho62@gmail.com';
+    $stockStatus=$post['stockStatus']=='on'?1:0;
     $sql = "INSERT INTO part (email,partName,stockQuantity,stockPrice,stockStatus)
-VALUES ('".$email."','".$post['partName']."','".$post['stockQuantity']."','".$post['stockPrice']."','".$post['stockStatus']."')";
+VALUES ('".$email."','".$post['partName']."','".$post['stockQuantity']."','".$post['stockPrice']."','".$stockStatus."')";
     if (mysqli_query($conn, $sql)){
         die(json_encode(['msg'=>'添加零件成功','status'=>'ok',]));
     } else {
@@ -57,8 +59,8 @@ VALUES ('".$email."','".$post['partName']."','".$post['stockQuantity']."','".$po
             //提交 Ajax 成功后，关闭当前弹层并重载表格
             //$.ajax({});
             sendAjax(field,'partsAdd.php','/partsList.php');
-            //parent.layui.table.reload('LAY-app-content-list'); //重载表格
-            //parent.layer.close(index); //再执行关闭
+            parent.layui.table.reload('partsList'); //重载表格
+            parent.layer.close(index); //再执行关闭
         });
     });
 </script>

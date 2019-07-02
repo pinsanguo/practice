@@ -1,6 +1,12 @@
 <?php
+session_start();
+$dealerID=$_SESSION['dealerID'];
 require_once('./public/conf.php');
-$sql1 = "SELECT * FROM dealer";
+if(!empty($dealerID)){
+    $sql1 = "SELECT * FROM dealer where dealerID='".$dealerID."'";
+}else{
+    $sql1 = "SELECT * FROM dealer";
+}
 $result2 = mysqli_query($conn, $sql1);
 ?>
 <?php include_once('./public/header.php');?>
