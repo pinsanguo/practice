@@ -14,7 +14,7 @@ if(!empty($_POST)){
     }
     $orderDate=date('Y-m-d H:i:s');
     $sql2 = "INSERT INTO orders (dealerID,orderDate,deliveryAddress,status)
-    VALUES ('".$dealerID."','".$orderDate."','".$post['deliveryAddress']."',0)";
+    VALUES ('".$dealerID."','".$orderDate."','".$post['deliveryAddress']."',1)";
     $status1=mysqli_query($conn, $sql2);
     $orderID=mysqli_insert_id($conn);
     $sql3 = "INSERT INTO orderpart (orderID,partNumber,quantity,price)
@@ -32,6 +32,7 @@ if(!empty($_GET['partNumber'])){
 }else{
     echo "加载失败";die();
 }
+$maxNumber=0;
 ?>
 <?php include_once('./public/header.php'); ?>
 <div class="layui-form" lay-filter="layuiadmin-app-form-list" id="layuiadmin-app-form-list"
@@ -51,13 +52,14 @@ if(!empty($_GET['partNumber'])){
         <label class="layui-form-label">零件價格</label>
         <div class="layui-input-inline">
             <input type="text" name="stockPrice" placeholder="零件價格" class="layui-input"
-                   value="<?php echo $row['partName'];?>" readonly>
+                   value="<?php echo $row['stockPrice'];?>" readonly>
         </div>
     </div>
     <div class="layui-form-item">
         <label class="layui-form-label">購買數量</label>
         <div class="layui-input-inline">
             <input type="number" name="number" lay-verify="number" placeholder="購買數量" autocomplete="off" class="layui-input" min="0" max="<?php echo $row['stockQuantity'];?>">
+            <?php $maxNumber=$row['stockQuantity'];?>
         </div>
     </div>
     <div class="layui-form-item">
@@ -85,6 +87,14 @@ if(!empty($_GET['partNumber'])){
     layui.use('form', function(){
         var $ = layui.$
             ,form = layui.form;
+        form.verify({
+            number : function(value) {
+                var maxNum=<?php echo $maxNumber;?>;
+                if(value >maxNum){
+                    return '您購買的數量超過最大庫存';
+                }
+            },
+        });
         //监听提交
         form.on('submit(partsView)', function(data){
             var field = data.field; //获取提交的字段

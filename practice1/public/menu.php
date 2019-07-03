@@ -33,6 +33,15 @@
                     <dd data-name="console">
                         <a lay-href="partsView.php">下订单</a>
                     </dd>
+<!--                    <dd data-name="console">-->
+<!--                        <a lay-href="dealerOrder.php?status=1">待處理訂單</a>-->
+<!--                    </dd>-->
+                    <dd data-name="console">
+                        <a lay-href="dealerOrder.php?status=2">確認訂單</a>
+                    </dd>
+                    <dd data-name="console">
+                        <a lay-href="dealerOrder.php?status=3">已確認訂單</a>
+                    </dd>
                     <dd data-name="console">
                         <a lay-href="dealerUserAdd.php">新增经销商</a>
                     </dd>
@@ -50,10 +59,16 @@
                 </a>
                 <dl class="layui-nav-child">
                     <dd data-name="console">
-                        <a lay-href="adminLogin.php">管理員登錄系統</a>
+                        <a lay-href="partsList.php">零件列表</a>
                     </dd>
                     <dd data-name="console">
-                        <a lay-href="partsList.php">零件列表</a>
+                        <a lay-href="orderList.php?status=1">確認訂單</a>
+                    </dd>
+                    <dd data-name="console">
+                        <a lay-href="orderList.php">總訂單查詢</a>
+                    </dd>
+                    <dd data-name="console">
+                        <a lay-href="adminLogin.php">管理員登錄系統</a>
                     </dd>
                 </dl>
             </li>

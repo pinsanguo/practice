@@ -4,7 +4,7 @@ if(!empty($_POST['email'])){
     $post=$_POST;
     $sql1 = "SELECT * FROM administrator where email='".$post['email']."'";
     $result2 = mysqli_query($conn, $sql1);
-    if (mysqli_num_rows($result2) > 0) {
+    if (!empty($result2) && mysqli_num_rows($result2) > 0) {
         while($row = mysqli_fetch_assoc($result2)) {
             $password=$row['password'];
             if($password == $post['password']){

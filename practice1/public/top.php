@@ -5,7 +5,7 @@
         </a>
     </li>
     <li class="layui-nav-item layui-hide-xs" lay-unselect>
-        <a href="http://www.layui.com/admin/" target="_blank" title="前台">
+        <a href="javascript:;" target="_blank" title="前台">
             <i class="layui-icon layui-icon-website"></i>
         </a>
     </li>
@@ -21,7 +21,7 @@
 </ul>
 <ul class="layui-nav layui-layout-right" lay-filter="layadmin-layout-right">
     <li class="layui-nav-item" lay-unselect>
-        <a lay-href="app/message/index.html" layadmin-event="message" lay-text="消息中心">
+        <a href="javascript:;" layadmin-event="message" lay-text="消息中心">
             <i class="layui-icon layui-icon-notice"></i>
 
             <!-- 如果有新消息，则显示小圆点 -->
@@ -45,7 +45,7 @@
     </li>
     <li class="layui-nav-item" lay-unselect>
         <a href="javascript:;">
-            <cite>贤心</cite>
+            <cite>admin</cite>
         </a>
         <dl class="layui-nav-child">
             <dd><a lay-href="set/user/info.html">基本资料</a></dd>

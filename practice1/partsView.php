@@ -20,7 +20,7 @@ $num_rows = mysqli_num_rows($result1);
                 <div class="layui-col-md2 layui-col-sm4">
                     <div class="cmdlist-container">
                         <a href="javascript:;" onclick="partBuy(<?php echo $row['partNumber'];?>)">
-                            <img src="../../layuiadmin/style/res/template/portrait.png">
+                            <img src="/public/image/2.jpg">
                         </a>
                         <a href="javascript:;" onclick="partBuy(<?php echo $row['partNumber'];?>)">
                             <div class="cmdlist-text">

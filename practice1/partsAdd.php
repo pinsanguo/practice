@@ -1,10 +1,17 @@
 <?php
+session_start();
 if(!empty($_POST['partName'])){
     $post=$_POST;
     require_once('./public/conf.php');
-    $email='';
-    $email='karasho62@gmail.com';
-    $stockStatus=$post['stockStatus']=='on'?1:0;
+    if(empty($_SESSION['email'])){
+        header('location:adminLogin.php');
+    }
+    $email=$_SESSION['email'];
+    if(!empty($post['stockStatus']) && $post['stockStatus']=='on'){
+        $stockStatus=1;
+    }else{
+        $stockStatus=0;
+    }
     $sql = "INSERT INTO part (email,partName,stockQuantity,stockPrice,stockStatus)
 VALUES ('".$email."','".$post['partName']."','".$post['stockQuantity']."','".$post['stockPrice']."','".$stockStatus."')";
     if (mysqli_query($conn, $sql)){
@@ -58,9 +65,9 @@ VALUES ('".$email."','".$post['partName']."','".$post['stockQuantity']."','".$po
 
             //提交 Ajax 成功后，关闭当前弹层并重载表格
             //$.ajax({});
-            sendAjax(field,'partsAdd.php','/partsList.php');
-            parent.layui.table.reload('partsList'); //重载表格
-            parent.layer.close(index); //再执行关闭
+            sendAjax(field,'partsAdd.php','/partsAdd.php');
+            // parent.layui.table.reload('partsList'); //重载表格
+            // parent.layer.close(index); //再执行关闭
         });
     });
 </script>
