@@ -1,17 +1,19 @@
 <?php
-require_once('./mysql.php');
+require_once('mysql.php');
 $configArr=[
+    'host'=>'localhost',
+    'port'=>'3306',
     'user'=>'root',
     'passwd'=>'root',
     'dbname'=>'test2',
 ];
 $mysql = new MMysql($configArr);
-$data=[
-    'name'=>'cache1',
-    'value'=>'keys',
-];
-$result=$mysql->insert('practice',$data);
-print_r($result);die();
+//$data=[
+//    'name'=>'cache1',
+//    'value'=>'keys',
+//];
+//$result=$mysql->insert('practice',$data);
+//print_r($result);die();
 
 ////查询
 //$res = $mysql->field(array('sid','aa','bbc'))
