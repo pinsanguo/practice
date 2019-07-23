@@ -1,10 +1,10 @@
-body{font: 14px "Open Sans", serif; background-color: #fdfdfd; float: left; height: 100%; position: relative; width: 100%; background-color: #e3e3e4;}
-*{margin: 0; padding: 0; box-sizing: border-box;}
-:focus{outline: none;}
-a{text-decoration: none;}
-li{list-style: none;}
-h1{font-size: 24px; font-weight: 600; margin: 20px 0 10px; text-align: center;}
-.container{margin: 50px auto; max-width: 600px;}
+/*body{font: 14px "Open Sans", serif; background-color: #fdfdfd; float: left; height: 100%; position: relative; width: 100%; background-color: #e3e3e4;}*/
+/**{margin: 0; padding: 0; box-sizing: border-box;}*/
+/*:focus{outline: none;}*/
+/*a{text-decoration: none;}*/
+/*li{list-style: none;}*/
+/*h1{font-size: 24px; font-weight: 600; margin: 20px 0 10px; text-align: center;}*/
+/*.container{margin: 50px auto; max-width: 600px;}*/
 
 /*= wizard css =*/
 .payment-wizard{float: left; width: 100%;}
