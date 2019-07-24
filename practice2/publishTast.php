@@ -8,7 +8,7 @@
 <link rel="stylesheet" type="text/css" href="./public/css/style.css">
 <script src="./public/js/jquery-1.11.1.min.js"></script>
 <script src="./public/js/register.js"></script>
-<!--<body class="bgf4">-->
+<body class="bgf4" style="overflow:scroll;">
 <div class="login-box f-mt10 f-pb50">
     <div class="main bgf">
         <div class="reg-box-pan display-inline">
@@ -52,7 +52,107 @@
                                         <span class="icon-user"></span>
                                     </div>
                                     <div class="wizard-content">
-
+                                        <fieldset class="layui-elem-field layui-field-title">
+                                            <legend style="margin-bottom:0px;">
+                                                <span style="color:red;">*</span>
+                                                选择添加推广类型:
+                                            </legend>
+                                        </fieldset>
+                                        <table class="layui-table" lay-skin="line">
+                                            <thead>
+                                            <tr style="background-color:#66CCFF;color:black;">
+                                                <th>
+                                                    <input type="radio" name="step1_3_type" value="1">
+                                                    普通好评任务(默认为5星无评价内容,如需评价请备注,但不可规定评价内容)
+                                                </th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div class="layui-form-item" style="margin-bottom:0px;">
+                                                        <label class="layui-form-label" style="width:115px;padding:9px 0px;"><span style="color:red">*</span>搜索关键词1:</label>
+                                                        <div class="layui-input-inline" style="width:70%;">
+                                                            <input type="text" name="step1_option" lay-verify="required" class="layui-input" style="width:230px;display:inline;">
+                                                            添加垫付
+                                                            <input type="text" name="step1_amount_money" class="layui-input" style="width:100px;display:inline;">单
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="layui-form-item" style="margin-bottom:0px;">
+                                                        <label class="layui-form-label" style="width:115px;padding:9px 0px;"><span style="color:red">*</span>搜索关键词2:</label>
+                                                        <div class="layui-input-inline" style="width:70%;">
+                                                            <input type="text" name="step1_option" class="layui-input" style="width:230px;display:inline;">
+                                                            添加垫付
+                                                            <input type="text" name="step1_amount_money" class="layui-input" style="width:100px;display:inline;">单
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="layui-form-item" style="margin-bottom:0px;">
+                                                        <label class="layui-form-label" style="width:115px;padding:9px 0px;"><span style="color:red">*</span>搜索关键词3:</label>
+                                                        <div class="layui-input-inline" style="width:70%;">
+                                                            <input type="text" name="step1_option" class="layui-input" style="width:230px;display:inline;">
+                                                            添加垫付
+                                                            <input type="text" name="step1_amount_money" class="layui-input" style="width:100px;display:inline;">单
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="layui-form-item" style="margin-bottom:0px;">
+                                                        <label class="layui-form-label" style="width:115px;padding:9px 0px;"><span style="color:red">*</span>搜索关键词4:</label>
+                                                        <div class="layui-input-inline" style="width:70%;">
+                                                            <input type="text" name="step1_option" class="layui-input" style="width:230px;display:inline;">
+                                                            添加垫付
+                                                            <input type="text" name="step1_amount_money" class="layui-input" style="width:100px;display:inline;">单
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="layui-form-item" style="margin-bottom:0px;">
+                                                        <label class="layui-form-label" style="width:115px;padding:9px 0px;"><span style="color:red">*</span>搜索关键词5:</label>
+                                                        <div class="layui-input-inline" style="width:70%;">
+                                                            <input type="text" name="step1_option" class="layui-input" style="width:230px;display:inline;">
+                                                            添加垫付
+                                                            <input type="text" name="step1_amount_money" class="layui-input" style="width:100px;display:inline;">单
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                        <table class="layui-table" lay-skin="line">
+                                            <thead>
+                                            <tr style="background-color:#66CCFF;color:black;">
+                                                <th>
+                                                    <input type="radio" name="step1_3_type" value="2">
+                                                    指定文字好评任务(文字好评任务佣金+3金/单)
+                                                </th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>
+                                                    设置指定文本好评内容
+                                                    <div class="layui-form-item" style="margin-bottom:0px;">
+                                                        <label class="layui-form-label" style="width:115px;padding:9px 0px;">指定图片好评:</label>
+                                                        <div class="layui-input-inline" style="width:70%;">
+                                                            <input type="text" name="step1_option" lay-verify="required" class="layui-input" style="width:230px;display:inline;">单
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
                                         <!--第一步-->
                                         <div class="layui-form-item">
                                             <label class="layui-form-label" style="width:115px;"><span style="color:red">*</span>商品名称:</label>
