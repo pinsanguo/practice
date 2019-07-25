@@ -5,6 +5,7 @@
 <link href="./public/css/bootstrap.min.css" rel="stylesheet">
 <link href="./public/css/gloab.css" rel="stylesheet">
 <link href="./public/css/index.css" rel="stylesheet">
+<link href="./public/css/publish.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="./public/css/style.css">
 <script src="./public/js/jquery-1.11.1.min.js"></script>
 <script src="./public/js/register.js"></script>
@@ -50,6 +51,140 @@
                                     <div class="wizard-heading">
                                         第一步：填写商品信息
                                         <span class="icon-user"></span>
+                                    </div>
+                                    <div class="wizard-content">
+                                        全部指定货比三家(+2金/单)
+                                        <div class="layui-form-item">
+                                            <label class="layui-form-label">
+                                                <span style="color:red;">*</span>店铺名称
+                                            </label>
+                                            <div class="layui-input-block">
+                                                <input type="text" name="title" class="layui-input">
+                                            </div>
+                                        </div>
+                                        <div class="layui-form-item">
+                                            <label class="layui-form-label">
+                                                <span style="color:red;">*</span>淘 口 令
+                                            </label>
+                                            <div class="layui-input-block">
+                                                <input type="text" name="title" class="layui-input">
+                                            </div>
+                                        </div>
+                                        <div class="layui-form-item">
+                                            <label class="layui-form-label">
+                                                <span style="color:red;">*</span>宝贝链接
+                                            </label>
+                                            <div class="layui-input-block">
+                                                <input type="text" name="title" class="layui-input">
+                                            </div>
+                                        </div>
+                                        <!--第一步-->
+                                        <div class="layui-form-item">
+                                            <label class="layui-form-label" style="width:115px;"><span style="color:red">*</span>商品名称:</label>
+                                            <div class="layui-input-inline">
+                                                <input type="text" name="saleName" lay-verify="required" placeholder="商品名称" class="layui-input">
+                                            </div>
+                                        </div>
+                                        <div class="layui-form-item">
+                                            <label class="layui-form-label" style="width:115px;"><span style="color:red">*</span>商品链接:</label>
+                                            <div class="layui-input-inline">
+                                                <input type="text" name="saleLink" lay-verify="required" placeholder="商品链接" class="layui-input">
+                                            </div>
+                                        </div>
+                                        <div style="color:red;margin:0 auto;width:60%;">注意:选择的店铺核对准确,不要填错链</div>
+                                        <div class="layui-form-item">
+                                            <label class="layui-form-label" style="width:115px;"><span style="color:red">*</span>商品主图:</label>
+                                            <button type="button" class="layui-btn" id="test2">商品主图</button>
+                                            <br/>
+                                            <div style="margin:0 auto;width:60%;">上传"商品主图",确保与搜索页面展示的图片一致.</div>
+                                            <div class="layui-upload-list" id="demo2">
+                                                <img src=""/>
+                                            </div>
+                                        </div>
+                                        <div class="layui-form-item">
+                                            <label class="layui-form-label" style="width:115px;"><span style="color:red">*</span>拍下规格:</label>
+                                            <div class="layui-input-inline" style="width:70%;">
+                                                <input type="text" name="step1_option" lay-verify="required" class="layui-input" style="width:100px;display:inline;">
+                                                单品实际成交金额(含快递费):
+                                                <input type="text" name="step1_amount_money" lay-verify="email" autocomplete="off" class="layui-input" style="width:100px;display:inline;">元
+                                            </div>
+                                        </div>
+                                        <div class="layui-form-item">
+                                            <label class="layui-form-label" style="width:115px;"><span style="color:red">*</span>每单拍:</label>
+                                            <div class="layui-input-inline" style="width:70%;">
+                                                <input type="text" name="step1_option" lay-verify="required" class="layui-input" style="width:100px;display:inline;">
+                                                件  &nbsp; 每单总金额
+                                                <input type="text" name="step1_amount_money" lay-verify="email" autocomplete="off" class="layui-input" style="width:100px;display:inline;">元 【不含运费】
+                                            </div>
+                                        </div>
+                                        <div class="layui-form-item">
+                                            <label class="layui-form-label" style="width:190px;"><span style="color:red">*</span>手机搜索页面展示价格:</label>
+                                            <div class="layui-input-inline" style="width:50px;">
+                                                <input type="password" name="password" class="layui-input">
+                                            </div>
+                                            元,用户拍下时的付款价格,如不同等级买号看到商品价格不同,取最大值
+                                        </div>
+                                        <button class="btn-green done" type="submit">下一步</button>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="wizard-heading">
+                                        第二步：设置如何找到商品
+                                        <span class="icon-location"></span>
+                                    </div>
+                                    <div class="wizard-content">
+                                        <div class="layui-form-item">
+                                            <label class="layui-form-label" style="width:180px;"><span style="color:red">*</span>定位目标商品排序方式:</label>
+                                            <div class="layui-input-block">
+                                                <input type="radio" name="sex" value="销量" title="销量" checked="">销量
+                                                <input type="radio" name="sex" value="综合" title="综合">综合
+                                                <input type="radio" name="sex" value="综合直通车" title="综合直通车">综合直通车(强烈建议销量排序,商品位置更稳定更好找)
+                                            </div>
+                                        </div>
+                                        <div class="layui-form-item">
+                                            <label class="layui-form-label" style="width:225px;"><span style="color:red">*</span>商品现有收货人数或付款人数:</label>
+                                            <div class="layui-input-inline" style="width:60px;">
+                                                <input type="text" name="saleName" lay-verify="required" class="layui-input">
+                                            </div>
+                                            人    (此处为手机淘宝销量优先搜索列表页显示的收货人数)
+                                        </div>
+                                        <fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
+                                            <!--<legend>基础效果</legend>-->
+                                        </fieldset>
+                                        <div class="layui-form-item">
+                                            <div class="layui-inline">
+                                                <label class="layui-form-label" style="width:115px;">价格区间:</label>
+                                                <div class="layui-input-inline" style="width:80px;">
+                                                    <input type="text" name="price_min" placeholder="￥" autocomplete="off" class="layui-input">
+                                                </div>
+                                                <div class="layui-form-mid">-</div>
+                                                <div class="layui-input-inline" style="width:80px;">
+                                                    <input type="text" name="price_max" placeholder="￥" autocomplete="off" class="layui-input">
+                                                </div>
+                                                元(如果商品不好找，强烈建议添加价格区间、商品所在地方便用户找到你的商品。)
+                                            </div>
+                                        </div>
+                                        <div class="layui-form-item">
+                                            <label class="layui-form-label" style="width:115px;">商品所在地:</label>
+                                            <div class="layui-input-inline">
+                                                <input type="text" name="" readonly value="全国" class="layui-input">
+                                            </div>
+                                        </div>
+                                        <div class="layui-form-item">
+                                            <label class="layui-form-label" style="width:115px;">订单留言:</label>
+                                            <div class="layui-input-inline">
+                                                <input type="text" name="step1_2note" lay-verify="required" class="layui-input">
+                                            </div>
+                                            用户拍下商品所需要填写的买家留言；出于安全考虑不建议大批量使用
+                                            <div class="layui-form-mid layui-word-aux">如非必须建议不指定订单备注留言！因淘宝现在人工审核申诉订单时，会排查买家的订单留言内容及发货方式 是否匹配，出于安全性考虑，大家尽量通过订单号和买号来区分推广订单.</div>
+                                        </div>
+                                        <button class="btn-green done" type="submit">下一步</button>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="wizard-heading">
+                                        第三步：选择任务类型和单数
+                                        <span class="icon-summary"></span>
                                     </div>
                                     <div class="wizard-content">
                                         <fieldset class="layui-elem-field layui-field-title">
@@ -206,116 +341,100 @@
                                             </tr>
                                             </tbody>
                                         </table>
-                                        <!--第一步-->
-                                        <div class="layui-form-item">
-                                            <label class="layui-form-label" style="width:115px;"><span style="color:red">*</span>商品名称:</label>
-                                            <div class="layui-input-inline">
-                                                <input type="text" name="saleName" lay-verify="required" placeholder="商品名称" class="layui-input">
-                                            </div>
-                                        </div>
-                                        <div class="layui-form-item">
-                                            <label class="layui-form-label" style="width:115px;"><span style="color:red">*</span>商品链接:</label>
-                                            <div class="layui-input-inline">
-                                                <input type="text" name="saleLink" lay-verify="required" placeholder="商品链接" class="layui-input">
-                                            </div>
-                                        </div>
-                                        <div style="color:red;margin:0 auto;width:60%;">注意:选择的店铺核对准确,不要填错链</div>
-                                        <div class="layui-form-item">
-                                            <label class="layui-form-label" style="width:115px;"><span style="color:red">*</span>商品主图:</label>
-                                            <button type="button" class="layui-btn" id="test2">商品主图</button>
-                                            <br/>
-                                            <div style="margin:0 auto;width:60%;">上传"商品主图",确保与搜索页面展示的图片一致.</div>
-                                            <div class="layui-upload-list" id="demo2">
-                                                <img src=""/>
-                                            </div>
-                                        </div>
-                                        <div class="layui-form-item">
-                                            <label class="layui-form-label" style="width:115px;"><span style="color:red">*</span>拍下规格:</label>
-                                            <div class="layui-input-inline" style="width:70%;">
-                                                <input type="text" name="step1_option" lay-verify="required" class="layui-input" style="width:100px;display:inline;">
-                                                单品实际成交金额(含快递费):
-                                                <input type="text" name="step1_amount_money" lay-verify="email" autocomplete="off" class="layui-input" style="width:100px;display:inline;">元
-                                            </div>
-                                        </div>
-                                        <div class="layui-form-item">
-                                            <label class="layui-form-label" style="width:115px;"><span style="color:red">*</span>每单拍:</label>
-                                            <div class="layui-input-inline" style="width:70%;">
-                                                <input type="text" name="step1_option" lay-verify="required" class="layui-input" style="width:100px;display:inline;">
-                                                件  &nbsp; 每单总金额
-                                                <input type="text" name="step1_amount_money" lay-verify="email" autocomplete="off" class="layui-input" style="width:100px;display:inline;">元 【不含运费】
-                                            </div>
-                                        </div>
-                                        <div class="layui-form-item">
-                                            <label class="layui-form-label" style="width:190px;"><span style="color:red">*</span>手机搜索页面展示价格:</label>
-                                            <div class="layui-input-inline" style="width:50px;">
-                                                <input type="password" name="password" class="layui-input">
-                                            </div>
-                                            元,用户拍下时的付款价格,如不同等级买号看到商品价格不同,取最大值
-                                        </div>
-                                        <button class="btn-green done" type="submit">下一步</button>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="wizard-heading">
-                                        第二步：设置如何找到商品
-                                        <span class="icon-location"></span>
-                                    </div>
-                                    <div class="wizard-content">
-                                        <div class="layui-form-item">
-                                            <label class="layui-form-label" style="width:180px;"><span style="color:red">*</span>定位目标商品排序方式:</label>
-                                            <div class="layui-input-block">
-                                                <input type="radio" name="sex" value="销量" title="销量" checked="">销量
-                                                <input type="radio" name="sex" value="综合" title="综合">综合
-                                                <input type="radio" name="sex" value="综合直通车" title="综合直通车">综合直通车(强烈建议销量排序,商品位置更稳定更好找)
-                                            </div>
-                                        </div>
-                                        <div class="layui-form-item">
-                                            <label class="layui-form-label" style="width:225px;"><span style="color:red">*</span>商品现有收货人数或付款人数:</label>
-                                            <div class="layui-input-inline" style="width:60px;">
-                                                <input type="text" name="saleName" lay-verify="required" class="layui-input">
-                                            </div>
-                                            人    (此处为手机淘宝销量优先搜索列表页显示的收货人数)
-                                        </div>
-                                        <fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
-                                            <!--<legend>基础效果</legend>-->
-                                        </fieldset>
-                                        <div class="layui-form-item">
-                                            <div class="layui-inline">
-                                                <label class="layui-form-label" style="width:115px;">价格区间:</label>
-                                                <div class="layui-input-inline" style="width:80px;">
-                                                    <input type="text" name="price_min" placeholder="￥" autocomplete="off" class="layui-input">
-                                                </div>
-                                                <div class="layui-form-mid">-</div>
-                                                <div class="layui-input-inline" style="width:80px;">
-                                                    <input type="text" name="price_max" placeholder="￥" autocomplete="off" class="layui-input">
-                                                </div>
-                                                元(如果商品不好找，强烈建议添加价格区间、商品所在地方便用户找到你的商品。)
-                                            </div>
-                                        </div>
-                                        <div class="layui-form-item">
-                                            <label class="layui-form-label" style="width:115px;">商品所在地:</label>
-                                            <div class="layui-input-inline">
-                                                <input type="text" name="" readonly value="全国" class="layui-input">
-                                            </div>
-                                        </div>
-                                        <div class="layui-form-item">
-                                            <label class="layui-form-label" style="width:115px;">订单留言:</label>
-                                            <div class="layui-input-inline">
-                                                <input type="text" name="step1_2note" lay-verify="required" class="layui-input">
-                                            </div>
-                                            用户拍下商品所需要填写的买家留言；出于安全考虑不建议大批量使用
-                                            <div class="layui-form-mid layui-word-aux">如非必须建议不指定订单备注留言！因淘宝现在人工审核申诉订单时，会排查买家的订单留言内容及发货方式 是否匹配，出于安全性考虑，大家尽量通过订单号和买号来区分推广订单.</div>
-                                        </div>
-                                        <button class="btn-green done" type="submit">下一步</button>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="wizard-heading">
-                                        第三步：选择任务类型和单数
-                                        <span class="icon-summary"></span>
-                                    </div>
-                                    <div class="wizard-content">
-                                        <p>Order summary details section.</p>
+                                        <table class="layui-table" lay-skin="line">
+                                            <thead>
+                                            <tr style="background-color:#66CCFF;color:black;">
+                                                <th>
+                                                    <input type="radio" name="step1_3_type" value="4">
+                                                    指定视频好评任务(指定好评关键字任务佣金 + 5金/单)
+                                                </th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>
+                                                    设置视频好评内容
+                                                    <div class="layui-form-item" style="margin-bottom:0px;">
+                                                        <label class="layui-form-label" style="width:115px;padding:9px 0px;">指定视频好评:</label>
+                                                        <div class="layui-input-inline" style="width:70%;">
+                                                            <input type="text" name="step1_option" lay-verify="required" class="layui-input" style="width:230px;display:inline;">单
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span style="color:#009DDA;font-size:35px;">①</span>
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label" style="width:115px;"><span style="color:red">*</span>选择视频:</label>
+                                                        <button type="button" class="layui-btn" id="test2">选择视频:</button>
+                                                        <br/>
+                                                        <div style="margin:0 auto;width:60%;">最多可添加3张图片，每组照片拍摄的角度,背景不能一样</div>
+                                                        <div class="layui-upload-list" id="demo2">
+                                                            <img src=""/>
+                                                        </div>
+                                                    </div>
+                                                    <div class="layui-form-item layui-form-text">
+                                                        <label class="layui-form-label" style="width:100px;padding:9px 0px;">评价内容:</label>
+                                                        <div class="layui-input-block">
+                                                            <textarea placeholder="可自定义评价内容，可填写完整的评价内容，最多99个字" class="layui-textarea"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                        <table class="layui-table" lay-skin="line">
+                                            <tbody>
+                                            <tr>
+                                                <td>
+                                                    <span style="font-size:20px;font-weight:800;">
+                                                        <input type="radio" name="step1_4_type" value="1">
+                                                        指定付款时间(<span style="color:red;">+2金/单</span>)
+                                                    </span>
+                                                    <div class="layui-form-item" style="margin-bottom:0px;">
+                                                        <label class="layui-form-label" style="width:115px;padding:9px 0px;">购买付款时间:</label>
+                                                        <div class="layui-input-inline" style="width:70%;">
+                                                            <input type="text" name="step1_option" lay-verify="required" class="layui-input" style="width:135px;display:inline;" value="2019.6.30 16:00">(买家会指定日期后24小时的任意时间付款)
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span style="font-size:14px;font-weight:800;">
+                                                        <input type="radio" name="step1_4_type" value="2">
+                                                        发布任务时间(+1金/单)
+                                                    </span>
+                                                    <br/>
+                                                    <span style="color:red;">
+                                                        计划放单总单数必须等于发布任务总量，间隔分钟等于0默认开始时间一到一起发布
+                                                    </span>
+                                                    <div class="layui-form-item" style="margin-bottom:0px;">
+                                                        <label class="layui-form-label" style="width:115px;padding:9px 0px;">开始时间:</label>
+                                                        <div class="layui-input-inline" style="width:70%;">
+                                                            <input type="text" name="step1_option" lay-verify="required" class="layui-input" style="width:135px;display:inline;" value="">间隔
+                                                            <input type="text" name="step1_option" lay-verify="required" class="layui-input" style="width:50px;display:inline;" value="">
+                                                            分钟/单，共放
+                                                            <input type="text" name="step1_option" lay-verify="required" class="layui-input" style="width:50px;display:inline;" value="">
+                                                            单
+                                                        </div>
+                                                    </div>
+                                                    <br/>
+                                                    <div class="layui-form-item" style="margin-bottom:0px;">
+                                                        <label class="layui-form-label" style="width:115px;padding:9px 0px;">开始时间:</label>
+                                                        <div class="layui-input-inline" style="width:70%;">
+                                                            <input type="text" name="step1_option" lay-verify="required" class="layui-input" style="width:135px;display:inline;" value="">间隔
+                                                            <input type="text" name="step1_option" lay-verify="required" class="layui-input" style="width:50px;display:inline;" value="">
+                                                            分钟/单，共放
+                                                            <input type="text" name="step1_option" lay-verify="required" class="layui-input" style="width:50px;display:inline;" value="">
+                                                            单
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
                                         <button class="btn-green done" type="submit">Continue</button>
                                     </div>
                                 </li>
@@ -324,8 +443,22 @@
                                         第四步：千人前面设置
                                         <span class="icon-summary"></span>
                                     </div>
-                                    <div class="wizard-content">
-                                        <p>Order summary details section.</p>
+                                    <div class="wizard-content" style="font-size:15px;">
+                                        千人前面设置(用户属性)---------------------------------
+                                        <div class="layui-input-block" style="margin-left:40px;">
+                                            <input type="checkbox" name="like1[write]" lay-skin="primary" checked="">
+                                            地域限制(+2金/单)<br/>
+                                            ------------------------------------------------------------------------<br/>
+                                            <input type="checkbox" name="like1[read]" lay-skin="primary">
+                                            年龄限制(仅限选择年龄段用户可接该任务,+1金/单)<br/>
+                                            ------------------------------------------------------------------------<br/>
+                                            <input type="checkbox" name="like1[game]" lay-skin="primary" disabled="">
+                                            性别限制(仅限选择性别用户可接该任务,+1金/单)<br/>
+                                            ------------------------------------------------------------------------<br/>
+                                            <input type="checkbox" name="like1[game]" lay-skin="primary" disabled="">
+                                            1钻以上(+2金/单)<br/>
+                                            ------------------------------------------------------------------------<br/>
+                                        </div>
                                         <button class="btn-green done" type="submit">Continue</button>
                                     </div>
                                 </li>
