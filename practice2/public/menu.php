@@ -25,6 +25,15 @@
                     <dd data-name="console">
                         <a lay-href="publishTast.php">发布任务</a>
                     </dd>
+                    <dd data-name="console">
+                        <a lay-href="shopManage.php">店铺管理</a>
+                    </dd>
+                    <dd data-name="console">
+                        <a lay-href="taskManage.php">任务管理</a>
+                    </dd>
+                    <dd data-name="console">
+                        <a lay-href="recharge.php">账户充值</a>
+                    </dd>
                 </dl>
             </li>
             <li data-name="dealer" class="layui-nav-item">

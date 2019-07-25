@@ -5,7 +5,7 @@
 <link href="./public/css/bootstrap.min.css" rel="stylesheet">
 <link href="./public/css/gloab.css" rel="stylesheet">
 <link href="./public/css/index.css" rel="stylesheet">
-<link href="./public/css/publish.css" rel="stylesheet">
+<link href="./public/css/publishTast.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="./public/css/style.css">
 <script src="./public/js/jquery-1.11.1.min.js"></script>
 <script src="./public/js/register.js"></script>
@@ -35,7 +35,7 @@
             </div>
             <div class="reg-box" id="verifyCheck" style="margin-top:20px;">
                 <div class="part1">
-                    <div class="alert alert-info" style="width:700px">
+                    <div class="alert alert-info" style="width:800px">
                         <p>所有商家都要注意在做标签推广务必严格控制好以下3点：</p>
                         <p>1. <span style="color:red;">物流一定要有真实物流记录，一定要有全程重量并且重量跟真实商品一致！一定不要网上买那些小快递的，便宜的空包（稽查系统在不断升
                             级，有些以前没出事不代表现在或以后没事</span>）；目前可以选用平台提供的空包（不要信当地快递网点手动输入的重量，当地网点无法控制包裹
@@ -44,8 +44,8 @@
                         <p>3. 移动端搜索转化率务必不要过高，保持在行业平均转化率的1.5倍左右最佳</p>
                         <p>4. 推广期间请务必关掉商品淘客佣金，推广过程有诸多不确定因素可能导致产生佣金可能造成您的损失。</p>
                     </div>
-                    <section class="htmleaf-container" style="width:700px">
-                        <div class="container">
+                    <section class="htmleaf-container" style="width:800px">
+                        <div class="container" style="max-width:800px;margin:50px 0px;">
                             <ul class="payment-wizard">
                                 <li class="active">
                                     <div class="wizard-heading">
@@ -54,30 +54,6 @@
                                     </div>
                                     <div class="wizard-content">
                                         全部指定货比三家(+2金/单)
-                                        <div class="layui-form-item">
-                                            <label class="layui-form-label">
-                                                <span style="color:red;">*</span>店铺名称
-                                            </label>
-                                            <div class="layui-input-block">
-                                                <input type="text" name="title" class="layui-input">
-                                            </div>
-                                        </div>
-                                        <div class="layui-form-item">
-                                            <label class="layui-form-label">
-                                                <span style="color:red;">*</span>淘 口 令
-                                            </label>
-                                            <div class="layui-input-block">
-                                                <input type="text" name="title" class="layui-input">
-                                            </div>
-                                        </div>
-                                        <div class="layui-form-item">
-                                            <label class="layui-form-label">
-                                                <span style="color:red;">*</span>宝贝链接
-                                            </label>
-                                            <div class="layui-input-block">
-                                                <input type="text" name="title" class="layui-input">
-                                            </div>
-                                        </div>
                                         <!--第一步-->
                                         <div class="layui-form-item">
                                             <label class="layui-form-label" style="width:115px;"><span style="color:red">*</span>商品名称:</label>
@@ -435,7 +411,7 @@
                                             </tr>
                                             </tbody>
                                         </table>
-                                        <button class="btn-green done" type="submit">Continue</button>
+                                        <button class="btn-green done" type="submit">下一步</button>
                                     </div>
                                 </li>
                                 <li>
@@ -459,7 +435,7 @@
                                             1钻以上(+2金/单)<br/>
                                             ------------------------------------------------------------------------<br/>
                                         </div>
-                                        <button class="btn-green done" type="submit">Continue</button>
+                                        <button class="btn-green done" type="submit">下一步</button>
                                     </div>
                                 </li>
                                 <li>
@@ -468,8 +444,100 @@
                                         <span class="icon-mode"></span>
                                     </div>
                                     <div class="wizard-content">
-                                        <p>Your payment methods detail section.</p>
-                                        <button class="btn-green" type="submit">Done</button>
+                                        <div class="layui-form-item mrbo0">
+                                            <label class="layui-form-label wit100">
+                                                <span class="red">*</span>店铺名称
+                                            </label>
+                                            <div class="layui-input-block">
+                                                <input type="text" name="title" class="layui-input">
+                                            </div>
+                                        </div>
+                                        <div class="layui-form-item mrbo0">
+                                            <label class="layui-form-label wit100">
+                                                <span class="red">*</span>淘 口 令
+                                            </label>
+                                            <div class="layui-input-block">
+                                                <input type="text" name="title" class="layui-input">
+                                            </div>
+                                        </div>
+                                        <div class="layui-form-item mrbo0">
+                                            <label class="layui-form-label wit100">
+                                                <span class="red">*</span>宝贝链接
+                                            </label>
+                                            <div class="layui-input-block">
+                                                <input type="text" name="title" class="layui-input">
+                                            </div>
+                                        </div>
+                                        -----------------------------------------------------------------------------------
+                                        <div class="layui-form-item mrbo0">
+                                            <label class="layui-form-label wit100">
+                                                <span class="red">*</span>店铺名称
+                                            </label>
+                                            <div class="layui-input-block">
+                                                <input type="text" name="title" class="layui-input">
+                                            </div>
+                                        </div>
+                                        <div class="layui-form-item mrbo0">
+                                            <label class="layui-form-label wit100">
+                                                <span class="red">*</span>淘 口 令
+                                            </label>
+                                            <div class="layui-input-block">
+                                                <input type="text" name="title" class="layui-input">
+                                            </div>
+                                        </div>
+                                        <div class="layui-form-item mrbo0 ">
+                                            <label class="layui-form-label wit100">
+                                                <span class="red">*</span>宝贝链接
+                                            </label>
+                                            <div class="layui-input-block">
+                                                <input type="text" name="title" class="layui-input">
+                                            </div>
+                                        </div>
+                                        -----------------------------------------------------------------------------------
+                                        <div class="layui-form-item mrbo0">
+                                            <label class="layui-form-label wit100">
+                                                <span class="red">*</span>店铺名称
+                                            </label>
+                                            <div class="layui-input-block">
+                                                <input type="text" name="title" class="layui-input">
+                                            </div>
+                                        </div>
+                                        <div class="layui-form-item mrbo0">
+                                            <label class="layui-form-label wit100">
+                                                <span class="red">*</span>淘 口 令
+                                            </label>
+                                            <div class="layui-input-block">
+                                                <input type="text" name="title" class="layui-input">
+                                            </div>
+                                        </div>
+                                        <div class="layui-form-item mrbo0">
+                                            <label class="layui-form-label wit100">
+                                                <span class="red">*</span>宝贝链接
+                                            </label>
+                                            <div class="layui-input-block">
+                                                <input type="text" name="title" class="layui-input">
+                                            </div>
+                                        </div>
+                                        -----------------------------------------------------------------------------------
+                                        <button class="btn-green done" type="submit">下一步</button>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="wizard-heading">
+                                        第六步：商家附加要求
+                                        <span class="icon-mode"></span>
+                                    </div>
+                                    <div class="wizard-content">
+                                        <div class="layui-form-item layui-form-text">
+                                            <label class="layui-form-label wit100">备注说明:</label>
+                                            <div class="layui-input-block">
+                                                <textarea class="layui-textarea">
+                                                    重要！如果对用户有特别的要求，请在备注里注明，用户在做任务的时候会看到，最多不能超过300字
+                                                    （任务备注只是商家要求，我们只能做到传达给用户但不会强制用户按要求操作
+                                                </textarea>
+                                            </div>
+                                        </div>
+                                        <button class="btn-green" type="submit">下一步</button>
                                     </div>
                                 </li>
                             </ul>
@@ -483,59 +551,83 @@
                     </div>
                 </div>
                 <div class="part2" style="display:none">
-                    <div class="alert alert-info" style="width:700px">短信已发送至您手机，请输入短信中的验证码，确保您的手机号真实有效。</div>
-                    <div class="item col-xs-12 f-mb10" style="height:auto">
-                        <span class="intelligent-label f-fl">手机号：</span>
-                        <div class="f-fl item-ifo c-blue">
-                            15824450934
-                        </div>
-                    </div>
-                    <div class="item col-xs-12">
-                        <span class="intelligent-label f-fl"><b class="ftx04">*</b>验证码：</span>
-                        <div class="f-fl item-ifo">
-                            <input type="text" maxlength="6" id="verifyNo" class="txt03 f-r3 f-fl required" tabindex="4" style="width:167px" data-valid="isNonEmpty||isInt" data-error="验证码不能为空||请输入6位数字验证码" />
-                            <span class="btn btn-gray f-r3 f-ml5 f-size13" id="time_box" disabled style="width:97px;display:none;">发送验证码</span>
-                            <span class="btn btn-gray f-r3 f-ml5 f-size13" id="verifyYz" style="width:97px;">发送验证码</span>
-                            <span class="ie8 icon-close close hide" style="right:130px"></span>
-                            <label class="icon-sucessfill blank hide"></label>
-                            <label class="focus"><span>请查收手机短信，并填写短信中的验证码（此验证码3分钟内有效）</span></label>
-                            <label class="focus valid"></label>
-                        </div>
-                    </div>
+                    本次任务费用详情
+                    <table class="layui-table step2_tab">
+                        <colgroup>
+                            <col width="10%">
+                            <col width="20%">
+                            <col width="15%">
+                            <col width="10%">
+                        </colgroup>
+                        <thead>
+                        <tr>
+                            <th>分类</th>
+                            <th>费用明细</th>
+                            <th>数量</th>
+                            <th>小记</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td rowspan="5">佣金</td>
+                            <td>基础佣金：15金/单</td>
+                            <td>5单</td>
+                            <td>75.00金</td>
+                        </tr>
+                        <tr>
+                            <td>千人千面（性别）:2金/单</td>
+                            <td>2单</td>
+                            <td>4.00金</td>
+                        </tr>
+                        <tr>
+                            <td>千人前面（年龄）：1金/单</td>
+                            <td>2单</td>
+                            <td>2.00金</td>
+                        </tr>
+                        <tr>
+                            <td>指定好评：3金/单</td>
+                            <td>5单</td>
+                            <td>15.00金</td>
+                        </tr>
+                        <tr>
+                            <td>指定视频好评：5金/单</td>
+                            <td>5单</td>
+                            <td>25.00金</td>
+                        </tr>
+                        <tr>
+                            <td rowspan="2">本金</td>
+                            <td>平台返款服务费：1金/单</td>
+                            <td>5单</td>
+                            <td>5.00金</td>
+                        </tr>
+                        <tr>
+                            <td>返款本金：119.00金/单</td>
+                            <td>5单</td>
+                            <td>595.00金</td>
+                        </tr>
+                        <tr>
+                            <td colspan="4">
+                                合计单数：5单<br/>
+                                合计支付：本金604.00金+佣金121.00金=725.00金
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="4">
+                                使用账户余额支付(可用 500.00 金， 充值成功后请 刷新本页面)
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
                     <div class="item col-xs-12">
                         <span class="intelligent-label f-fl">&nbsp;</span>
-                        <div class="f-fl item-ifo">
-                            <a href="javascript:;" class="btn btn-blue f-r3" id="btn_part2">注册</a>
+                        <div class="f-fl item-ifo" style="width: 563px;">
+                            <a href="javascript:;" class="btn btn-blue f-r3" id="btn_part2_1">上一步</a>
+                            <a href="javascript:;" class="btn btn-blue f-r3" id="btn_part2_2">付款并发布任务</a>
                         </div>
                     </div>
                 </div>
                 <div class="part3" style="display:none">
-                    <div class="item col-xs-12">
-                        <span class="intelligent-label f-fl"><b class="ftx04">*</b>真实姓名：</span>
-                        <div class="f-fl item-ifo">
-                            <input type="text" maxlength="10" class="txt03 f-r3 required" tabindex="1" data-valid="isNonEmpty||between:2-10||isZh" data-error="真实姓名不能为空||真实姓名长度2-10位||只能输入中文" id="adminNo" />
-                            <span class="ie8 icon-close close hide"></span>
-                            <label class="icon-sucessfill blank hide"></label>
-                            <label class="focus">2-10位，中文真实姓名</label>
-                            <label class="focus valid"></label>
-                        </div>
-                    </div>
-                    <div class="item col-xs-12">
-                        <span class="intelligent-label f-fl"><b class="ftx04">*</b>身份证号：</span>
-                        <div class="f-fl item-ifo">
-                            <input type="text" class="txt03 f-r3 required" tabindex="2" data-valid="isNonEmpty||isCard" data-error="身份证号不能为空||身份证号码格式不正确" maxlength="18" id="phone" />
-                            <span class="ie8 icon-close close hide"></span>
-                            <label class="icon-sucessfill blank hide"></label>
-                            <label class="focus">请填写18位有效的手机号码</label>
-                            <label class="focus valid"></label>
-                        </div>
-                    </div>
-                    <div class="item col-xs-12">
-                        <span class="intelligent-label f-fl">&nbsp;</span>
-                        <div class="f-fl item-ifo">
-                            <a href="javascript:;" class="btn btn-blue f-r3" id="btn_part3">下一步</a>
-                        </div>
-                    </div>
+                    <span style="font-size:25px;font-weight:500;margin-left:30%;color:red;">恭喜  发布任务成功</span>
                 </div>
                 <div class="part4 text-center" style="display:none">
                     <h3>恭喜cz82465，您已注册成功，现在开始您的投资之旅吧！</h3>
@@ -565,7 +657,7 @@
             $(".step li").eq(1).addClass("on");
         });
         //第二页的确定按钮
-        $("#btn_part2").click(function(){
+        $("#btn_part2_2").click(function(){
             if(!verifyCheck._click()) return;
             $(".part2").hide();
             $(".part3").show();
