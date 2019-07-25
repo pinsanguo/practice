@@ -151,6 +151,59 @@
                                                     </div>
                                                 </td>
                                             </tr>
+                                            <tr>
+                                                <td>
+                                                    <span style="color:#009DDA;font-size:35px;">①</span>设置第1单的文字
+                                                    <div class="layui-form-item layui-form-text">
+                                                        <div class="layui-input-block">
+                                                            <textarea placeholder="可填写完整的评价内容，最多99个字" class="layui-textarea"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                        <table class="layui-table" lay-skin="line">
+                                            <thead>
+                                            <tr style="background-color:#66CCFF;color:black;">
+                                                <th>
+                                                    <input type="radio" name="step1_3_type" value="3">
+                                                    指定图片好评任务(指定好评关键字任务佣金 + 5金/单)
+                                                </th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>
+                                                    设置图文好评内容
+                                                    <div class="layui-form-item" style="margin-bottom:0px;">
+                                                        <label class="layui-form-label" style="width:115px;padding:9px 0px;">指定图片好评:</label>
+                                                        <div class="layui-input-inline" style="width:70%;">
+                                                            <input type="text" name="step1_option" lay-verify="required" class="layui-input" style="width:230px;display:inline;">单
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span style="color:#009DDA;font-size:35px;">①</span>
+                                                    <div class="layui-form-item">
+                                                        <label class="layui-form-label" style="width:115px;"><span style="color:red">*</span>商品主图:</label>
+                                                        <button type="button" class="layui-btn" id="test2">选择图片</button>
+                                                        <br/>
+                                                        <div style="margin:0 auto;width:60%;">最多可添加3张图片，每组照片拍摄的角度,背景不能一样</div>
+                                                        <div class="layui-upload-list" id="demo2">
+                                                            <img src=""/>
+                                                        </div>
+                                                    </div>
+                                                    <div class="layui-form-item layui-form-text">
+                                                        <label class="layui-form-label" style="width:100px;padding:9px 0px;">评价内容:</label>
+                                                        <div class="layui-input-block">
+                                                            <textarea placeholder="可自定义评价内容，可填写完整的评价内容，最多99个字" class="layui-textarea"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
                                             </tbody>
                                         </table>
                                         <!--第一步-->
