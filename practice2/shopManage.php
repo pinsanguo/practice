@@ -1,6 +1,8 @@
 <?php
 session_start();
-$status=!empty($_GET['status'])?$_GET['status']:0;
+if(empty($_SESSION['shopUserID'])){
+    header('location:userLogin.php');
+}
 ?>
 <?php include_once('./public/header.php'); ?>
 <div class="layui-fluid">
@@ -11,7 +13,7 @@ $status=!empty($_GET['status'])?$_GET['status']:0;
             </div>
             <table id="shopList" lay-filter="shopList"></table>
             <script type="text/html" id="table-content-list">
-                <a class="layui-btn layui-btn-normal layui-btn-xs" onclick="editshop({{d.orderID}})"><i
+                <a class="layui-btn layui-btn-normal layui-btn-xs" onclick="editshop({{d.id}})"><i
                         class="layui-icon layui-icon-edit"></i>修改</a>
             </script>
         </div>
@@ -60,7 +62,7 @@ $status=!empty($_GET['status'])?$_GET['status']:0;
                     ,title: '添加店铺'
                     ,content: 'shopAdd.php'
                     ,maxmin: true
-                    ,area: ['550px', '550px']
+                    ,area: ['65%','80%']
                     ,btn: ['確定', '取消']
                     ,yes: function(index, layero){
                         //点击确认触发 iframe 内容中的按钮提交
@@ -71,22 +73,25 @@ $status=!empty($_GET['status'])?$_GET['status']:0;
             }
         };
 
-        $('.layui-btn.layuiadmin-btn-list').on('click', function(){
+        $('.layui-btn.layuiadmin-btn-list').on('click',function(){
             var type = $(this).data('type');
             active[type] ? active[type].call(this) : '';
         });
     });
-    function cancleOrder(orderID){
-        var field={orderID:orderID,updateStatus:0};
-        sendAjax(field,'orderUpdate.php','');
-    }
-    function confirmOrder(orderID){
-        var field={orderID:orderID,updateStatus:2};
-        sendAjax(field,'orderUpdate.php','');
-    }
-    function deliveryOrder(orderID){
-        var field={orderID:orderID,updateStatus:3};
-        sendAjax(field,'orderUpdate.php','');
+    function editshop(shopId){
+        layer.open({
+            type: 2
+            ,title: '修改店铺'
+            ,content: 'shopEdit.php?shopId='+shopId
+            ,maxmin: true
+            ,area: ['65%','80%']
+            ,btn: ['確定', '取消']
+            ,yes: function(index, layero){
+                //点击确认触发 iframe 内容中的按钮提交
+                var submit = layero.find('iframe').contents().find("#shopEdit");
+                submit.click();
+            }
+        });
     }
 </script>
 <script>
@@ -97,7 +102,7 @@ $status=!empty($_GET['status'])?$_GET['status']:0;
                 n = layui.form;
             i.render({
                 elem: "#shopList",
-                url: "shopContent.php?status=<?php echo $status;?>",
+                url: "shopContent.php",
                 cols: [[{
                     type: "checkbox",
                     fixed: "left"

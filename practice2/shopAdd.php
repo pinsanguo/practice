@@ -1,11 +1,12 @@
 <?php
 session_start();
+if(empty($_SESSION['shopUserID'])){
+    header('location:userLogin.php');
+}
 if(!empty($_POST['shopName'])){
     $post=$_POST;
     require_once('./public/conf.php');
-    if(empty($_SESSION['userID'])){
-        header('location:userAdd.php');
-    }
+    $userId=$_SESSION['shopUserID'];
     $result=$mysql->insert('shopManage',
         [
             'shopType'=>$post['shopType'],
@@ -14,11 +15,12 @@ if(!empty($_POST['shopName'])){
             'shopWang'=>$post['shopWang'],
             'shopPhone'=>$post['shopPhone'],
             'shopQQ'=>$post['shopQQ'],
+            'userId'=>$userId,
         ]);
-    if ($result){
+    if($result){
         die(json_encode(['msg'=>'添加店铺成功','status'=>'ok',]));
-    } else {
-                echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+    }else{
+//        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
         die(json_encode(['msg'=>'添加店铺失败.','status'=>'error',]));
     }
 }
@@ -77,7 +79,7 @@ if(!empty($_POST['shopName'])){
 
             //提交 Ajax 成功后，关闭当前弹层并重载表格
             //$.ajax({});
-            sendAjax(field,'shopAdd.php','/shopManage.php');
+            sendAjax(field,'shopAdd.php','');
             // parent.layui.table.reload('partsList'); //重载表格
             // parent.layer.close(index); //再执行关闭
         });

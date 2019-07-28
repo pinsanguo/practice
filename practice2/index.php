@@ -1,7 +1,7 @@
 <?php
 session_start();
-if(empty($_SESSION['userRole']) || $_SESSION['userRole']!='admin'){
-//    header('location:adminLogin.php');
+if(empty($_SESSION['shopUserID']) || $_SESSION['userRole']!='shopUser'){
+    header('location:userLogin.php');
 }
 ?>
 <?php include_once('./public/header.php');?>

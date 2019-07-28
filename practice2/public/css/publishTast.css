@@ -7,3 +7,7 @@
 .step2_tab{width: 800px;padding:30px;}
 #btn_part2_1{float:left;}
 #btn_part2_2{float:right;}
+.step1_msg{color:red;padding-left:115px;padding-bottom:5px;}
+.step1_upload_msg{padding-left:115px;padding-top:5px;}
+#step1_upload{padding-left:115px;}
+#step1_upload img{width:80px;}

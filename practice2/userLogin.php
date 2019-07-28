@@ -10,8 +10,9 @@ if(!empty($_POST['username'])){
         if($_res['password'] == $post['password']){
             //登陸成功
             session_start();
-            $_SESSION['userId']=$_res['id'];
-            $_SESSION['userName']=$_res['name'];
+            $_SESSION['shopUserID']=$_res['id'];
+            $_SESSION['shopUserName']=$_res['name'];
+            $_SESSION['userRole']='shopUser';
             die(json_encode(['msg'=>'登录成功','status'=>'ok',]));
         }else{
             die(json_encode(['msg'=>'账户输入错误','status'=>'error',]));
