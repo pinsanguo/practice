@@ -48,6 +48,11 @@ $userName=$_SESSION['shopUserName'];
                 ?>
                 <dl class="layui-nav-child">
                     <dd data-name="console">
+                        <a lay-href="userList.php">用户管理</a>
+                    </dd>
+                </dl>
+                <dl class="layui-nav-child">
+                    <dd data-name="console">
                         <a lay-href="organ3.php">全公司架构</a>
                     </dd>
                 </dl>
