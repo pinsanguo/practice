@@ -25,7 +25,7 @@ include_once('./public/header.php');
                             <a href="javascript:;" class="layui-icon layui-icon-login-wechat"></a>
                             <a href="javascript:;" class="layui-icon layui-icon-login-qq"></a>
                         </div>
-                        <textarea id="copy" style="opacity: 0;display:block;" readonly>http://practice3.com/userAdd.php?send=<?php echo $userId;?></textarea>
+                        <textarea id="copy" style="opacity: 0;display:block;" readonly>http://140.143.245.188/userAdd.php?send=<?php echo $userId;?></textarea>
                         <button class="layui-btn" onclick="copyLink()">复制推广链接</button>
                     </div>
                 </div>
