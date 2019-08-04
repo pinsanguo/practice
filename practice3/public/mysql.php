@@ -201,7 +201,7 @@ class MMysql{
         if (!trim($this->_where)) return false;
         $data = $this->_dataFormat($tbName,$data);
         if (!$data) return;
-        $valArr = '';
+        $valArr = [];
         foreach($data as $k=>$v){
             $valArr[] = $k.'='.$v;
         }
