@@ -10,7 +10,7 @@ include_once('./public/header.php');
 <link rel="stylesheet" href="/public/layuiadmin/style/template.css" media="all">
 <div class="layui-fluid layadmin-homepage-fluid">
     <div class="layui-row layui-col-space8">
-        <div class="">
+        <div class="layui-col-md2">
             <div class="layadmin-homepage-panel layadmin-homepage-shadow">
                 <div class="layui-card text-center">
                     <div class="layui-card-body">

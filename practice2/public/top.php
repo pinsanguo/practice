@@ -1,3 +1,11 @@
+<?php
+if(empty($_SESSION['shopUserID'])){
+    header('location:userLogin2.php');
+}
+$userName=$_SESSION['shopUserName'];
+$userRole=$_SESSION['userRole'];
+$userId=$_SESSION['shopUserID'];
+?>
 <ul class="layui-nav layui-layout-left">
     <li class="layui-nav-item layadmin-flexible" lay-unselect>
         <a href="javascript:;" layadmin-event="flexible" title="侧边伸缩">
@@ -51,10 +59,21 @@
             <dd><a lay-href="set/user/info.html">基本资料</a></dd>
             <dd><a lay-href="set/user/password.html">修改密码</a></dd>
             <hr>
-            <dd layadmin-event="logout" style="text-align: center;"><a>退出</a></dd>
+            <?php if($userRole == 'shopUser'){?>
+                <dd onclick="logout()" style="text-align: center;"><a>退出</a></dd>
+            <?php }else if($userRole == 'shopUser2'){?>
+                <dd onclick="logout2()" style="text-align: center;"><a>退出</a></dd>
+            <?php }?>
         </dl>
     </li>
-
+    <script>
+        function logout(){
+            window.location.href="userLogin.php";
+        }
+        function logout2(){
+            window.location.href="userLogin2.php";
+        }
+    </script>
     <li class="layui-nav-item layui-hide-xs" lay-unselect>
         <a href="javascript:;" layadmin-event="about"><i
                 class="layui-icon layui-icon-more-vertical"></i></a>

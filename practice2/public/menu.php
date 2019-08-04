@@ -1,3 +1,12 @@
+<?php
+session_start();
+if(empty($_SESSION['shopUserName'])){
+    header('location:userLogin2.php');
+}
+$userName=$_SESSION['shopUserName'];
+$userRole=$_SESSION['userRole'];
+$userId=$_SESSION['shopUserID'];
+?>
 <div class="layui-side layui-side-menu">
     <div class="layui-side-scroll">
         <div class="layui-logo" href="javascript:;">
@@ -6,7 +15,7 @@
         <ul class="layui-nav layui-nav-tree" lay-shrink="all" id="LAY-system-side-menu"
             lay-filter="layadmin-system-side-menu">
             <li data-name="home" class="layui-nav-item layui-nav-itemed">
-                <a href="javascript:;" lay-tips="主页" lay-direction="2">
+                <a href="javascript:;" lay-tips="主页" lay-direction="2" data-val="<?php echo $userRole;?>">
                     <i class="layui-icon layui-icon-home"></i>
                     <cite>主页</cite>
                 </a>
@@ -16,6 +25,7 @@
                     </dd>
                 </dl>
             </li>
+            <?php if($userRole == 'shopUser'){?>
             <li data-name="dealer" class="layui-nav-item">
                 <a href="javascript:;" lay-tips="发布任务" lay-direction="2">
                     <i class="layui-icon layui-icon-template"></i>
@@ -36,35 +46,29 @@
                     </dd>
                 </dl>
             </li>
+            <?php }else if($userRole == 'shopUser2'){?>
             <li data-name="dealer" class="layui-nav-item">
-                <a href="javascript:;" lay-tips="系统设置" lay-direction="2">
+                <a href="javascript:;" lay-tips="管理中心" lay-direction="2">
                     <i class="layui-icon layui-icon-template"></i>
-                    <cite>系统设置</cite>
+                    <cite>管理中心</cite>
                 </a>
                 <dl class="layui-nav-child">
                     <dd data-name="console">
-                        <a lay-href="userLogin.php">登录</a>
+                        <a lay-href="userInfo2.php">完善信息</a>
                     </dd>
+                </dl>
+                <dl class="layui-nav-child">
                     <dd data-name="console">
-                        <a lay-href="userAdd.php">注册</a>
+                        <a lay-href="applyTask.php">任务大厅</a>
                     </dd>
+                </dl>
+                <dl class="layui-nav-child">
                     <dd data-name="console">
-                        <a lay-href="partsView.php">下订单</a>
-                    </dd>
-                    <dd data-name="console">
-                        <a lay-href="dealerOrder.php?status=2">確認訂單</a>
-                    </dd>
-                    <dd data-name="console">
-                        <a lay-href="dealerOrder.php?status=3">已確認訂單</a>
-                    </dd>
-                    <dd data-name="console">
-                        <a lay-href="dealerUserAdd.php">新增经销商</a>
-                    </dd>
-                    <dd data-name="console">
-                        <a lay-href="dealerUserLogin.php">登陸經銷商後台</a>
+                        <a lay-href="cashOut.php">账号提现</a>
                     </dd>
                 </dl>
             </li>
+            <?php }?>
         </ul>
     </div>
 </div>
