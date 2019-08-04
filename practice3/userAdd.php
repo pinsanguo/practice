@@ -13,7 +13,12 @@ if(!empty($_POST['username'])){
     if($post['password'] != $post['repass']){
         die(json_encode(['msg'=>'两次输入的密码不一致','status'=>'error']));
     }
-    $result=$mysql->insert('user',['username'=>$post['username'],'password'=>$post['password'],'parent'=>$send]);
+    $result=$mysql->insert('user',[
+        'username'=>$post['username'],
+        'password'=>$post['password'],
+        'cellphone'=>$post['cellphone'],
+        'parent'=>$send
+    ]);
     if ($result){
         die(json_encode(['msg'=>'success','status'=>'ok',]));
     } else {
@@ -34,6 +39,13 @@ if(!empty($_POST['username'])){
                     <label class="layadmin-user-login-icon layui-icon layui-icon-cellphone"
                            for="LAY-user-login-cellphone"></label>
                     <input type="text" name="username" placeholder="用户名" value="" class="layui-input">
+                </div>
+                <div class="layui-form-item">
+                    <label class="layadmin-user-login-icon layui-icon layui-icon-cellphone"
+                           for="LAY-user-login-cellphone"></label>
+                    <input type="text" name="cellphone" id="LAY-user-login-cellphone" lay-verify="phone"
+                           placeholder="手机号" value=""
+                           class="layui-input">
                 </div>
                 <div class="layui-form-item">
                     <label class="layadmin-user-login-icon layui-icon layui-icon-password"

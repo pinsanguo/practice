@@ -55,13 +55,17 @@ $userId=$_SESSION['shopUserID'];
             <cite><?php echo $name;?></cite>
         </a>
         <dl class="layui-nav-child">
-            <dd><a lay-href="set/user/info.html">基本资料</a></dd>
-            <dd><a lay-href="set/user/password.html">修改密码</a></dd>
+            <dd><a lay-href="proLink.php">基本资料</a></dd>
+            <dd><a lay-href="password.php">修改密码</a></dd>
             <hr>
-            <dd layadmin-event="logout" style="text-align: center;"><a>退出</a></dd>
+            <dd onclick="logout()" style="text-align: center;"><a>退出</a></dd>
         </dl>
     </li>
-
+    <script>
+        function logout(){
+            window.location.href="userLogin.php";
+        }
+    </script>
     <li class="layui-nav-item layui-hide-xs" lay-unselect>
         <a href="javascript:;" layadmin-event="about"><i
                 class="layui-icon layui-icon-more-vertical"></i></a>

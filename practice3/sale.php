@@ -9,6 +9,52 @@ $userName=$_SESSION['shopUserName'];
 <?php include_once('./public/header.php'); ?>
 <div class="layui-fluid">
     <div class="layui-card">
+        <div class="layui-form layui-card-header layuiadmin-card-header-auto">
+            <div class="layui-form-item">
+                <div class="layui-inline" style="margin-right:0px;">
+                    <label class="layui-form-label" style="width:auto;">用户信息</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="username" placeholder="请输入" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-inline" style="margin-right:0px;">
+                    <label class="layui-form-label" style="width:auto;">职称</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="title" placeholder="请输入" class="layui-input">
+                    </div>
+                </div>
+                <br/>
+                <div class="layui-inline" style="margin-right:0px;">
+                    <label class="layui-form-label" style="width:auto;">开始时间</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="startTime" value="<?php echo date('Y-m-d H:i:s')?>" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-inline" style="margin-right:0px;">
+                    <label class="layui-form-label" style="width:auto;">结束时间</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="endTime" value="<?php echo date('Y-m-d H:i:s')?>" placeholder="请输入" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-inline" style="margin-right:0px;">
+                    <label class="layui-form-label" style="width:auto;">时间类型</label>
+                    <div class="layui-input-inline">
+                        <select name="tiemType">
+                            <option value="">请选择时间类型</option>
+                            <option value="1">进货日期</option>
+                            <option value="2">结算时间</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <button class="layui-btn layuiadmin-btn-list" lay-submit lay-filter="shopSearch">
+                        <i class="layui-icon layui-icon-search layuiadmin-button-btn"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+
         <div class="layui-card-body">
             <div style="padding-bottom: 10px;">
                 <button class="layui-btn layuiadmin-btn-list" data-type="add">添加进货单</button>
@@ -29,9 +75,43 @@ $userName=$_SESSION['shopUserName'];
                 {{#  if(d.userId == d.benren){ }}
                     无返利
                 {{#  } else if(d.parent == d.benren){ }}
-                    返利 {{ d.amount * d.rebate1}} 元
+                    返利
+                    {{#  if(d.meTitle == '董事' && d.userTitle == '董事' && d.is_first == 1){ }}
+                        {{#  if(d.number >= 200 ){ }}
+                            {{ d.number * 30}}
+                        {{#  } else { }}
+                            {{ d.number * 15}}
+                        {{#  } }}
+                    {{#  } else if(d.meTitle == '董事' && d.userTitle == '董事' && d.is_first != 1){ }}
+                        {{ d.number * 5}}
+                    {{#  } else if(d.meTitle == '董事' && d.userTitle == '总裁' && d.is_first == 1){ }}
+                        {{#  if(d.number >= 200 ){ }}
+                            {{ d.number * 30}}
+                        {{#  } else { }}
+                            {{ d.number * 15}}
+                        {{#  } }}
+                    {{#  } else if(d.meTitle == '董事' && d.userTitle == '总裁' && d.is_first != 1){ }}
+                        {{ d.number * 5}}
+                    {{#  } else if(d.meTitle == '总裁' && d.userTitle == '总裁' && d.is_first == 1){ }}
+                        {{#  if(d.number >= 200 ){ }}
+                            {{ d.number * 15 }}
+                        {{#  } else { }}
+                            {{ d.number * 5 }}
+                        {{#  } }}
+                    {{#  } else if(d.meTitle == '总裁' && d.userTitle == '总裁' && d.is_first != 1){ }}
+                        {{ d.number * 5}}
+                    {{#  } else { }}
+                        {{ d.number * 5}}
+                    {{#  } }}
+                    元
                 {{#  } else if(exist){ }}
-                    返利 {{ d.amount * d.rebate2}} 元
+                    返利
+                    {{#  if(d.meTitle == '董事' && d.userTitle == '总裁' && d.is_first == 1){ }}
+                        {{ d.number * 5}}
+                    {{#  } else { }}
+                        {{ d.number * 3}}
+                    {{#  } }}
+                    元
                 {{#  } else{ }}
                     无返利
                 {{#  } }}
@@ -68,7 +148,15 @@ $userName=$_SESSION['shopUserName'];
     }).use(['index', 'contlist', 'table'], function(){
         var table = layui.table
             ,form = layui.form;
+        //监听搜索
+        form.on('submit(shopSearch)', function(data){
+            var field = data.field;
 
+            //执行重载
+            table.reload('shopList', {
+                where: field
+            });
+        });
         var $ = layui.$, active = {
             batchdel: function(){
                 var checkStatus = table.checkStatus('shopList')
@@ -191,7 +279,7 @@ $userName=$_SESSION['shopUserName'];
                         field: "rebate",
                         title: "返利",
                         toolbar: "#rebate",
-                        width:100
+                        width:200
                     },
                     {
                         field: "status",

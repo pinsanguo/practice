@@ -13,4 +13,4 @@ require_once('./public/conf.php');
     <link rel="stylesheet" href="/public/layuiadmin/layui/css/layui.css" media="all">
     <link rel="stylesheet" href="/public/layuiadmin/style/admin.css" media="all">
 </head>
-<body class="layui-layout-body">
+<body class="layui-layout-body" style="overflow:scroll;">

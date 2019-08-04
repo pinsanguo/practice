@@ -6,14 +6,14 @@ if(empty($_SESSION['shopUserName'])){
 $userName=$_SESSION['shopUserName'];
 $userId=1;
 require_once('./public/conf.php');
-$res1=$mysql->field('id,username,parent')
+$res1=$mysql->field('id,username,parent,title')
     ->where('id="'.$userId.'"')
     ->select('user2');
 $organ=[];
 foreach($res1 as $k=>$v){
     $organ=[
         'name'=>$v['username'],
-        'title'=>$v['username'],
+        'title'=>!empty($v['title'])?$v['title']:$v['username'],
         'id'=>$v['id'],
         'children'=>getChild($v['id'],0),
     ];
@@ -21,7 +21,7 @@ foreach($res1 as $k=>$v){
 function getChild($id,$level){
     require_once('./public/conf.php');
     $mysql=getMysql();
-    $res1=$mysql->field('id,username,parent')
+    $res1=$mysql->field('id,username,parent,title')
         ->where('parent="'.$id.'"')
         ->select('user2');
     $ret=[];
@@ -33,7 +33,7 @@ function getChild($id,$level){
     foreach($res1 as $k=>$v){
         $ret[]=[
             'name'=>$v['username'],
-            'title'=>$v['username'],
+            'title'=>!empty($v['title'])?$v['title']:$v['username'],
             'className'=>$className,
             'id'=>$v['id'],
             'children'=>getChild($v['id'],$level),

@@ -7,6 +7,15 @@ if(empty($_SESSION['shopUserID'])){
 if(!empty($_POST['sale_name'])){
     $post=$_POST;
     $userId=$_SESSION['shopUserID'];
+    $rebate=0;
+    $is_first=0;
+    //查询是否首次购买
+    $res1=$mysql->field('id,sale_name,number')
+        ->where('userId="'.$userId.'"')
+        ->select('sale');
+    if(empty($res1)){
+        $is_first=1;
+    }
     $result=$mysql->insert('sale',
         [
             'sale_name'=>$post['sale_name'],
@@ -14,8 +23,28 @@ if(!empty($_POST['sale_name'])){
             'number'=>$post['number'],
             'amount'=>$post['number']*$post['sale_price'],
             'userId'=>$userId,
+            'rebate'=>$rebate,
             'status'=>1,
+            'is_first'=>$is_first,
+            'addtime'=>date('Y-m-d H:i:s'),
         ]);
+    //拿货200支，自动成为总裁。拿货30支，自动成为联合创始人。拿货5支自动成为合伙人。
+    if($post['number'] >= 200){
+        $mysql->where(array('id'=>$userId))->update('user',
+            [
+                'title'=>'总裁',
+            ]);
+    }else if($post['number'] < 200 && $post['number'] >= 30){
+        $mysql->where(array('id'=>$userId))->update('user',
+            [
+                'title'=>'联合创始人',
+            ]);
+    }else if($post['number'] < 30 && $post['number'] >= 5){
+        $mysql->where(array('id'=>$userId))->update('user',
+            [
+                'title'=>'合伙人',
+            ]);
+    }
     if($result){
         die(json_encode(['msg'=>'添加进货单成功','status'=>'ok',]));
     }else{

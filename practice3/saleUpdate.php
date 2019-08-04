@@ -5,6 +5,7 @@ if($_POST['saleId']){
     $result=$mysql->where(array('id'=>$post['saleId']))->update('sale',
         [
             'status'=>$post['updateStatus'],
+            'settletime'=>date('Y-m-d H:i:s'),
         ]);
     if ($result){
         die(json_encode(['msg'=>'进货单审核成功','status'=>'ok',]));
