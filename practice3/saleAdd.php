@@ -30,7 +30,6 @@ if(!empty($_POST['sale_name'])){
         ]);
     //拿货200支，自动成为总裁。拿货30支，自动成为联合创始人。拿货5支自动成为合伙人。
     if($post['number'] >= 200){
-        echo $userId;die();
         $mysql->where(array('id'=>$userId))->update('user',
             [
                 'title'=>'总裁',
