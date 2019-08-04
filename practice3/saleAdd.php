@@ -12,8 +12,9 @@ if(!empty($_POST['sale_name'])){
     $user1=$mysql->field('id,username,title')
         ->where('id="'.$userId.'"')
         ->select('user');
-    if(!empty($user1) &&!empty($user1['0'])){
-        if($user1['0'] =='总裁' || $user1['0'] =='董事'){
+
+    if(!empty($user1) && !empty($user1['0'])){
+        if($user1['0']['title'] =='总裁' || $user1['0']['title'] =='董事'){
             if($post['number'] <= 70){
                 die(json_encode(['msg'=>'总裁或者董事每次进货不能少于70.','status'=>'error',]));
             }
@@ -39,7 +40,7 @@ if(!empty($_POST['sale_name'])){
             'addtime'=>date('Y-m-d H:i:s'),
         ]);
     //拿货200支，自动成为总裁。拿货30支，自动成为联合创始人。拿货5支自动成为合伙人。
-    if(!empty($user1) &&!empty($user1['0']) && $user1['0'] !=='总裁' && $user1['0'] !=='董事'){
+    if(!empty($user1) &&!empty($user1['0']) && $user1['0']['title'] !=='总裁' && $user1['0']['title'] !=='董事'){
         if($post['number'] >= 200){
             $mysql->where(array('id'=>$userId))->update('user',
                 [
@@ -50,7 +51,7 @@ if(!empty($_POST['sale_name'])){
                 [
                     'title'=>'联合创始人',
                 ]);
-        }else if($post['number'] < 30 && $post['number'] >= 5 && $user1['0'] !=='联合创始人'){
+        }else if($post['number'] < 30 && $post['number'] >= 5 && $user1['0']['title'] !=='联合创始人'){
             $mysql->where(array('id'=>$userId))->update('user',
                 [
                     'title'=>'合伙人',
