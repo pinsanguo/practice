@@ -62,20 +62,25 @@ $arr=[];
 foreach($res as $k=>$v){
     $parId=$userAll2[$v['userId']]['parent'];
     $arr[]=[
-        'id'=>$v['id'],
-        'sale_name'=>$v['sale_name'],
-        'userId'=>$v['userId'],
-        'number'=>$v['number'],
-        'amount'=>$v['amount'],
-        'status'=>$v['status'],
-        'is_first'=>$v['is_first'],
-        'benren'=>$benren,
+        'id'=>$v['id'],//id
+        'sale_name'=>$v['sale_name'],//商品名称
+        'userId'=>$v['userId'],//本条记录的用户ID
+        'number'=>$v['number'],//数量
+        'amount'=>$v['amount'],//总金额
+        'status'=>$v['status'],//状态
+        'is_first'=>$v['is_first'],//是否首次购买
+        'benren'=>$benren,//当前登录账户的ID
         'parent'=>!empty($userAll2[$v['userId']])?$userAll2[$v['userId']]['parent']:'无',
+//        当前账户的父级ID
         'userName'=>!empty($userAll2[$v['userId']])?$userAll2[$v['userId']]['username']:'无',
+//        购买该条记录账户的用户名
         'userTitle'=>!empty($userAll2[$v['userId']])?$userAll2[$v['userId']]['title']:'无',
+//        购买该条记录用户职称
         'meTitle'=>!empty($userAll2[$benren])?$userAll2[$benren]['title']:'无',
+//=当前用户职称
         'userParent'=>!empty($userAll2[$parId])?$userAll2[$parId]['username']:'无',
-        'sale_price'=>$v['sale_price'],
+//=购买该条记录用户父级账户名
+        'sale_price'=>$v['sale_price'],//价格
         'userChild'=>$userChil,
         'rebate1'=>0.15,
         'rebate2'=>0.05,
