@@ -71,20 +71,29 @@ foreach($res as $k=>$v){
         'is_first'=>$v['is_first'],//是否首次购买
         'benren'=>$benren,//当前登录账户的ID
         'parent'=>!empty($userAll2[$v['userId']])?$userAll2[$v['userId']]['parent']:'无',
-//        当前账户的父级ID
+        //当前账户的父级ID
         'userName'=>!empty($userAll2[$v['userId']])?$userAll2[$v['userId']]['username']:'无',
-//        购买该条记录账户的用户名
+        //购买该条记录账户的用户名
         'userTitle'=>!empty($userAll2[$v['userId']])?$userAll2[$v['userId']]['title']:'无',
-//        购买该条记录用户职称
+        //购买该条记录用户职称
         'meTitle'=>!empty($userAll2[$benren])?$userAll2[$benren]['title']:'无',
-//=当前用户职称
+        //当前用户职称
         'userParent'=>!empty($userAll2[$parId])?$userAll2[$parId]['username']:'无',
-//=购买该条记录用户父级账户名
+        'userParTitle'=>!empty($userAll2[$parId])?$userAll2[$parId]['title']:'无',
+        //购买该条记录用户父级账户名
         'sale_price'=>$v['sale_price'],//价格
         'userChild'=>$userChil,
-        'rebate1'=>0.15,
-        'rebate2'=>0.05,
+        'zong1'=>0.15,
+        'dong1'=>0.15,
+        'dong2'=>0.15,
+        'dong3'=>0.15,
     ];
 }
+// 需要区分的情况
+//①我是这条订单的父级
+//②我是这条订单的第一个总裁
+//③我是这条第一个董事
+//④我是这条第二个董事
+//⑤我是这条第三个董事
 die(json_encode(['data' => $arr, 'code' => 0]));
 ?>
