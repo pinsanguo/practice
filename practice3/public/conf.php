@@ -40,6 +40,50 @@ function deal_with_arr($userAll,$keys){
     }
     return $arr;
 }
+function get_zong1($parId,$userTitle){
+    if($userTitle == 'zong' || $userTitle == 'dong'){
+        return '无';
+    }
+    return get_title($parId,'zong',1);
+}
+function get_dong1($parId,$userTitle){
+    if($userTitle == 'zong' || $userTitle == 'dong'){
+        return '无';
+    }
+    return get_title($parId,'dong',1);
+}
+function get_dong2($parId,$userTitle){
+    if($userTitle == 'zong' || $userTitle == 'dong'){
+        return '无';
+    }
+    return get_title($parId,'dong',2);
+}
+function get_dong3($parId,$userTitle){
+    if($userTitle == 'zong' || $userTitle == 'dong'){
+        return '无';
+    }
+    return get_title($parId,'dong',3);
+}
+function get_title($parentId,$title,$level){
+    $mysql=getMysql();
+    $user1=$mysql->field('id,parent,title')
+        ->where('id="'.$parentId.'"')
+        ->select('user');
+    if(!empty($user1['0']['title'])){
+        if($user1['0']['title'] == $title){
+            if($level == 1){
+                return $user1['0']['id'];
+            }else{
+                $level=$level-1;
+                get_title($user1['0']['parent'],$title,$level);
+            }
+        }else{
+            get_title($user1['0']['parent'],$title,$level);
+        }
+    }else{
+        return ;
+    }
+}
 //$data=[
 //    'name'=>'cache1',
 //    'value'=>'keys',

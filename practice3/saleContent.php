@@ -61,6 +61,7 @@ $userChil=getChildId($userId);
 $arr=[];
 foreach($res as $k=>$v){
     $parId=$userAll2[$v['userId']]['parent'];
+    $userTitle=!empty($userAll2[$v['userId']])?$userAll2[$v['userId']]['title']:'无';
     $arr[]=[
         'id'=>$v['id'],//id
         'sale_name'=>$v['sale_name'],//商品名称
@@ -74,7 +75,7 @@ foreach($res as $k=>$v){
         //当前账户的父级ID
         'userName'=>!empty($userAll2[$v['userId']])?$userAll2[$v['userId']]['username']:'无',
         //购买该条记录账户的用户名
-        'userTitle'=>!empty($userAll2[$v['userId']])?$userAll2[$v['userId']]['title']:'无',
+        'userTitle'=>$userTitle,
         //购买该条记录用户职称
         'meTitle'=>!empty($userAll2[$benren])?$userAll2[$benren]['title']:'无',
         //当前用户职称
@@ -83,10 +84,10 @@ foreach($res as $k=>$v){
         //购买该条记录用户父级账户名
         'sale_price'=>$v['sale_price'],//价格
         'userChild'=>$userChil,
-        'zong1'=>0.15,
-        'dong1'=>0.15,
-        'dong2'=>0.15,
-        'dong3'=>0.15,
+        'zong1'=>get_zong1($parId,$userTitle),
+        'dong1'=>get_dong1($parId,$userTitle),
+        'dong2'=>get_dong2($parId,$userTitle),
+        'dong3'=>get_dong3($parId,$userTitle),
     ];
 }
 // 需要区分的情况
