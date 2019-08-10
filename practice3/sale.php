@@ -104,14 +104,14 @@ $userName=$_SESSION['shopUserName'];
                         {{ d.number * 5}}
                     {{#  } }}
                     元
-                {{#  } else if(exist){ }}
-                    返利
-                    {{#  if(d.meTitle == '董事' && d.userTitle == '总裁' && d.is_first == 1){ }}
-                        {{ d.number * 5}}
-                    {{#  } else { }}
-                        {{ d.number * 3}}
-                    {{#  } }}
-                    元
+                {{#  } else if(d.zong1 == d.benren && d.userTitle!= '总裁'){ }}
+                    {{ d.number * 15}}
+                {{#  } else if(d.dong1 == d.benren && d.userTitle!= '董事'){ }}
+                    {{ d.number * 15}}
+                {{#  } else if(d.dong2 == d.benren && d.userTitle!= '董事'){ }}
+                    {{ d.number * 5}}
+                {{#  } else if(d.dong3 == d.benren && d.userTitle!= '董事'){ }}
+                    {{ d.number * 3}}
                 {{#  } else{ }}
                     无返利
                 {{#  } }}

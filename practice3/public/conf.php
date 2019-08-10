@@ -41,28 +41,28 @@ function deal_with_arr($userAll,$keys){
     return $arr;
 }
 function get_zong1($parId,$userTitle){
-    if($userTitle == 'zong' || $userTitle == 'dong'){
+    if($userTitle == '总裁' || $userTitle == '董事'){
         return '无';
     }
-    return get_title($parId,'zong',1);
+    return get_title($parId,'总裁',1);
 }
 function get_dong1($parId,$userTitle){
-    if($userTitle == 'zong' || $userTitle == 'dong'){
+    if($userTitle == '董事'){
         return '无';
     }
-    return get_title($parId,'dong',1);
+    return get_title($parId,'董事',1);
 }
 function get_dong2($parId,$userTitle){
-    if($userTitle == 'zong' || $userTitle == 'dong'){
+    if($userTitle == '董事'){
         return '无';
     }
-    return get_title($parId,'dong',2);
+    return get_title($parId,'董事',2);
 }
 function get_dong3($parId,$userTitle){
-    if($userTitle == 'zong' || $userTitle == 'dong'){
+    if($userTitle == '董事'){
         return '无';
     }
-    return get_title($parId,'dong',3);
+    return get_title($parId,'董事',3);
 }
 function get_title($parentId,$title,$level){
     $mysql=getMysql();
@@ -75,10 +75,10 @@ function get_title($parentId,$title,$level){
                 return $user1['0']['id'];
             }else{
                 $level=$level-1;
-                get_title($user1['0']['parent'],$title,$level);
+                return get_title($user1['0']['parent'],$title,$level);
             }
         }else{
-            get_title($user1['0']['parent'],$title,$level);
+            return get_title($user1['0']['parent'],$title,$level);
         }
     }else{
         return ;

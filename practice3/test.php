@@ -1,0 +1,11 @@
+<?php
+session_start();
+require_once('./public/conf.php');
+if(empty($_SESSION['shopUserID'])){
+    header('location:userLogin.php');
+}
+$userId=$_SESSION['shopUserID'];
+$userName=$_SESSION['shopUserName'];
+$dong1=get_dong3(30,'合伙人');
+print_r($dong1);die();
+?>
