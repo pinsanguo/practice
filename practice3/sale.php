@@ -91,7 +91,7 @@ $userName=$_SESSION['shopUserName'];
                             {{ d.number * 15}}
                         {{#  } }}
                     {{#  } else if(d.meTitle == '董事' && d.userTitle == '总裁' && d.is_first != 1){ }}
-                        {{ d.number * 5}}
+                        {{ d.number * 15}}
                     {{#  } else if(d.meTitle == '总裁' && d.userTitle == '总裁' && d.is_first == 1){ }}
                         {{#  if(d.number >= 200 ){ }}
                             {{ d.number * 15 }}
