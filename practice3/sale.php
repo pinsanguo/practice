@@ -75,7 +75,6 @@ $userName=$_SESSION['shopUserName'];
                 {{#  if(d.userId == d.benren){ }}
                     无返利
                 {{#  } else if(d.parent == d.benren){ }}
-                    返利
                     {{#  if(d.meTitle == '董事' && d.userTitle == '董事' && d.is_first == 1){ }}
                         {{#  if(d.number >= 200 ){ }}
                             {{ d.number * 30}}
@@ -103,7 +102,6 @@ $userName=$_SESSION['shopUserName'];
                     {{#  } else { }}
                         {{ d.number * 5}}
                     {{#  } }}
-                    元
                 {{#  } else if(d.zong1 == d.benren && d.userTitle!= '总裁'){ }}
                     {{ d.number * 15}}
                 {{#  } else if(d.dong1 == d.benren && d.userTitle!= '董事'){ }}
