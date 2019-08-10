@@ -71,13 +71,13 @@ if(!empty($_POST['sale_name'])){
     <div class="layui-form-item">
         <label class="layui-form-label"><span style="color:red">*</span>商品名称：</label>
         <div class="layui-input-block">
-            <input type="text" name="sale_name" value="启灵科技" lay-verify="required" placeholder="请输入商品名称" class="layui-input">
+            <input type="text" name="sale_name" value="金源秀美滋养膏" lay-verify="required" placeholder="请输入商品名称" class="layui-input">
         </div>
     </div>
     <div class="layui-form-item">
-        <label class="layui-form-label"><span style="color:red">*</span>商品价格：</label>
+        <label class="layui-form-label"><span style="color:red">*</span>商品单价：</label>
         <div class="layui-input-block">
-            <input type="text" name="sale_price" value="200" lay-verify="required" placeholder="请输入商品价格" class="layui-input">
+            <input type="text" name="sale_price" value="" lay-verify="required" placeholder="请输入商品价格" class="layui-input">
         </div>
     </div>
     <div class="layui-form-item">
