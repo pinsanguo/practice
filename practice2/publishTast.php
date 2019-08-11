@@ -21,19 +21,24 @@ if(!empty($_POST['step1_saleName'])){
             $step3_num=json_encode($post['step3_num']);
         }else if($post['step3_type'] == 2){
             if(empty($post['step3_words_num'])){
-//                die(json_encode(['status'=>'error','msg'=>'请输入第三步的指定文本好评单数']));
+                die(json_encode(['status'=>'error','msg'=>'请输入第三步的指定文本好评单数']));
             }
             $step3_words_con=json_encode($post['step3_words_con']);
         }else if($post['step3_type'] == 3){
             if(empty($post['step3_image_num'])){
 //                die(json_encode(['status'=>'error','msg'=>'请输入第三步的指定图文好评单数']));
             }
-
         }else if($post['step3_type'] == 4){
             if(empty($post['step3_video_num'])){
 //                die(json_encode(['status'=>'error','msg'=>'请输入第三步的指定视频好评单数']));
             }
         }
+    }
+//    step4_limit  第四部千人千面设置
+    $step4_limit2='';
+    if(!empty($post['step4_limit'])){
+        $step4_limit=$post['step4_limit'];
+        $step4_limit2=implode(',',$step4_limit);
     }
     if(!empty($tastId)){
         $_res = $mysql->field(array('*'))
@@ -58,7 +63,6 @@ if(!empty($_POST['step1_saleName'])){
                 'step2_price_max'=>!empty($post['step2_price_max'])?$post['step2_price_max']:'',
                 'step2_note'=>!empty($post['step2_note'])?$post['step2_note']:'',
                 'step3_type'=>!empty($post['step3_type'])?$post['step3_type']:'',
-                'step4_limit'=>!empty($post['step4_limit'])?$post['step4_limit']:'',
                 'step5_name1'=>!empty($post['step5_name1'])?$post['step5_name1']:'',
                 'step5_pass1'=>!empty($post['step5_pass1'])?$post['step5_pass1']:'',
                 'step5_link1'=>!empty($post['step5_link1'])?$post['step5_link1']:'',
@@ -73,7 +77,14 @@ if(!empty($_POST['step1_saleName'])){
                 'step3_num'=>!empty($step3_num)?$step3_num:'',
                 'step3_words_num'=>!empty($post['step3_words_num'])?$post['step3_words_num']:$_info['step3_words_num'],
                 'step3_words_con'=>!empty($step3_words_con)?$step3_words_con:$_info['step3_words_con'],
-                'step3_image_num'=>!empty($post['step3_words_num'])?$post['step3_image_num']:$_info['step3_image_num'],
+                'step3_image_num'=>!empty($post['step3_image_num'])?$post['step3_image_num']:$_info['step3_image_num'],
+                'step3_pay_time'=>!empty($post['step3_pay_time'])?$post['step3_pay_time']:$_info['step3_pay_time'],
+                'step3_pay_time2'=>!empty($post['step3_pay_time2'])?$post['step3_pay_time2']:$_info['step3_pay_time2'],
+                'step3_pub_time'=>!empty($post['step3_pub_time'])?$post['step3_pub_time']:$_info['step3_pub_time'],
+                'step3_pub_start'=>!empty($post['step3_pub_start'])?$post['step3_pub_start']:$_info['step3_pub_start'],
+                'step3_pub_min'=>!empty($post['step3_pub_min'])?$post['step3_pub_min']:$_info['step3_pub_min'],
+                'step3_pub_num'=>!empty($post['step3_pub_num'])?$post['step3_pub_num']:$_info['step3_pub_num'],
+                'step4_limit'=>!empty($step4_limit2)?$step4_limit2:$_info['step4_limit'],
             ]);
     }else{
         $result=$mysql->insert('tast',
@@ -94,7 +105,6 @@ if(!empty($_POST['step1_saleName'])){
                 'step2_price_max'=>!empty($post['step2_price_max'])?$post['step2_price_max']:'',
                 'step2_note'=>!empty($post['step2_note'])?$post['step2_note']:'',
                 'step3_type'=>!empty($post['step3_type'])?$post['step3_type']:'',
-                'step4_limit'=>!empty($post['step4_limit'])?$post['step4_limit']:'',
                 'step5_name1'=>!empty($post['step5_name1'])?$post['step5_name1']:'',
                 'step5_pass1'=>!empty($post['step5_pass1'])?$post['step5_pass1']:'',
                 'step5_link1'=>!empty($post['step5_link1'])?$post['step5_link1']:'',
@@ -110,6 +120,14 @@ if(!empty($_POST['step1_saleName'])){
                 'step3_num'=>!empty($step3_num)?$step3_num:'',
                 'step3_words_num'=>!empty($post['step3_words_num'])?$post['step3_words_num']:'',
                 'step3_words_con'=>!empty($step3_words_con)?$step3_words_con:'',
+                'step3_image_num'=>!empty($post['step3_image_num'])?$post['step3_image_num']:$_info['step3_image_num'],
+                'step3_pay_time'=>!empty($post['step3_pay_time'])?$post['step3_pay_time']:$_info['step3_pay_time'],
+                'step3_pay_time2'=>!empty($post['step3_pay_time2'])?$post['step3_pay_time2']:$_info['step3_pay_time2'],
+                'step3_pub_time'=>!empty($post['step3_pub_time'])?$post['step3_pub_time']:$_info['step3_pub_time'],
+                'step3_pub_start'=>!empty($post['step3_pub_start'])?$post['step3_pub_start']:$_info['step3_pub_start'],
+                'step3_pub_min'=>!empty($post['step3_pub_min'])?$post['step3_pub_min']:$_info['step3_pub_min'],
+                'step3_pub_num'=>!empty($post['step3_pub_num'])?$post['step3_pub_num']:$_info['step3_pub_num'],
+                'step4_limit'=>!empty($step4_limit2)?$step4_limit2:$_info['step4_limit'],
             ]);
     }
     die(json_encode(['status'=>'ok','msg'=>'添加数据成功']));
@@ -308,6 +326,9 @@ include_once('./public/header.php');
                                                 选择添加推广类型:
                                             </legend>
                                         </fieldset>
+                                        <?php if($info['step3_type'] == 1){?>
+                                            <?php include_once('./publish/type3_1.php');?>
+                                        <?php }else{?>
                                         <script>
                                             function step3_add(btn) {
                                                 var tr = $(btn).parents('tr');
@@ -354,6 +375,10 @@ include_once('./public/header.php');
                                             </tr>
                                             </tbody>
                                         </table>
+                                        <?php }?>
+                                        <?php if($info['step3_type'] == 2){?>
+                                            <?php include_once('./publish/type3_2.php');?>
+                                        <?php }else{?>
                                         <table class="layui-table" lay-skin="line">
                                             <thead>
                                             <tr style="background-color:#66CCFF;color:black;">
@@ -404,6 +429,7 @@ include_once('./public/header.php');
                                             </tr>
                                             </tbody>
                                         </table>
+                                        <?php }?>
                                         <table class="layui-table" lay-skin="line">
                                             <thead>
                                             <tr style="background-color:#66CCFF;color:black;">
@@ -525,13 +551,15 @@ include_once('./public/header.php');
                                             <tr>
                                                 <td>
                                                     <span style="font-size:20px;font-weight:800;">
-                                                        <input type="radio" name="step3_pay_time" value="1">
+                                                        <input type="radio" name="step3_pay_time" value="1"
+                                                            <?php if($info['step3_pay_time'] == 1){ echo "checked='checked'";}?>
+                                                        >
                                                         指定付款时间(<span style="color:red;">+2金/单</span>)
                                                     </span>
                                                     <div class="layui-form-item" style="margin-bottom:0px;">
                                                         <label class="layui-form-label" style="width:115px;padding:9px 0px;">购买付款时间:</label>
                                                         <div class="layui-input-inline" style="width:70%;">
-                                                            <input type="text" name="step3_pay_time2" class="layui-input" style="width:135px;display:inline;" value="">(买家会指定日期后24小时的任意时间付款)
+                                                            <input type="text" name="step3_pay_time2" class="layui-input" style="width:170px;display:inline;" value="<?php echo $info['step3_pay_time2'];?>">(买家会指定日期后24小时的任意时间付款)
                                                         </div>
                                                     </div>
                                                 </td>
@@ -560,7 +588,9 @@ include_once('./public/header.php');
                                                         }
                                                     </script>
                                                     <span style="font-size:14px;font-weight:800;">
-                                                        <input type="radio" name="step3_pub_time" value="1">
+                                                        <input type="radio" name="step3_pub_time" value="1"
+                                                            <?php if($info['step3_pub_time'] == 1){ echo "checked='checked'";}?>
+                                                        >
                                                         发布任务时间(+1金/单)
                                                     </span>
                                                     <br/>
@@ -570,10 +600,10 @@ include_once('./public/header.php');
                                                     <div class="layui-form-item" style="margin-bottom:5px;">
                                                         <label class="layui-form-label" style="width:115px;padding:9px 0px;">开始时间:</label>
                                                         <div class="layui-input-inline" style="width:70%;">
-                                                            <input type="text" name="step3_pub_start" class="layui-input" style="width:135px;display:inline;" value="">间隔
-                                                            <input type="text" name="step3_pub_min" class="layui-input" style="width:50px;display:inline;" value="">
+                                                            <input type="text" name="step3_pub_start" class="layui-input" style="width:135px;display:inline;" value="<?php echo $info['step3_pub_start'];?>">间隔
+                                                            <input type="text" name="step3_pub_min" class="layui-input" style="width:50px;display:inline;" value="<?php echo $info['step3_pub_min'];?>">
                                                             分钟/单，共放
-                                                            <input type="text" name="step3_pub_num" class="layui-input" style="width:50px;display:inline;" value="">
+                                                            <input type="text" name="step3_pub_num" class="layui-input" style="width:50px;display:inline;" value="<?php echo $info['step3_pub_num'];?>">
                                                             单
                                                         </div>
                                                         <button type="button" class="layui-btn layui-btn-normal layui-btn-radius" onclick="step3_pub(this);" data-val="add">add</button>
@@ -595,16 +625,27 @@ include_once('./public/header.php');
                                     <div class="wizard-content" style="font-size:15px;">
                                         千人前面设置(用户属性)---------------------------------
                                         <div class="layui-input-block" style="margin-left:40px;">
-                                            <input type="checkbox" name="step4_limit[]" lay-skin="primary" value="1">
+                                            <?php $step4_limit=$info['step4_limit'];
+                                                $step4_limit_arr=explode(',',$step4_limit);
+                                            ?>
+                                            <input type="checkbox" name="step4_limit[]" lay-skin="primary" value="1"
+                                                <?php if(in_array('1',$step4_limit_arr)){ echo "checked='checked'";}?>
+                                            >
                                             地域限制(+2金/单)<br/>
                                             ------------------------------------------------------------------------<br/>
-                                            <input type="checkbox" name="step4_limit[]" lay-skin="primary" value="2">
+                                            <input type="checkbox" name="step4_limit[]" lay-skin="primary" value="2"
+                                                <?php if(in_array('2',$step4_limit_arr)){ echo "checked='checked'";}?>
+                                            >
                                             年龄限制(仅限选择年龄段用户可接该任务,+1金/单)<br/>
                                             ------------------------------------------------------------------------<br/>
-                                            <input type="checkbox" name="step4_limit[]" lay-skin="primary" value="3">
+                                            <input type="checkbox" name="step4_limit[]" lay-skin="primary" value="3"
+                                                <?php if(in_array('3',$step4_limit_arr)){ echo "checked='checked'";}?>
+                                            >
                                             性别限制(仅限选择性别用户可接该任务,+1金/单)<br/>
                                             ------------------------------------------------------------------------<br/>
-                                            <input type="checkbox" name="step4_limit[]" lay-skin="primary" value="4">
+                                            <input type="checkbox" name="step4_limit[]" lay-skin="primary" value="4"
+                                                <?php if(in_array('4',$step4_limit_arr)){ echo "checked='checked'";}?>
+                                            >
                                             1钻以上(+2金/单)<br/>
                                             ------------------------------------------------------------------------<br/>
                                         </div>
@@ -623,7 +664,7 @@ include_once('./public/header.php');
                                                 <span class="red">*</span>店铺名称
                                             </label>
                                             <div class="layui-input-block">
-                                                <input type="text" name="step5_name1" class="layui-input">
+                                                <input type="text" name="step5_name1" value="<?php echo $info['step5_name1'];?>" class="layui-input">
                                             </div>
                                         </div>
                                         <div class="layui-form-item mrbo0">
@@ -631,7 +672,7 @@ include_once('./public/header.php');
                                                 <span class="red">*</span>淘 口 令
                                             </label>
                                             <div class="layui-input-block">
-                                                <input type="text" name="step5_pass1" class="layui-input">
+                                                <input type="text" name="step5_pass1" value="<?php echo $info['step5_pass1'];?>" class="layui-input">
                                             </div>
                                         </div>
                                         <div class="layui-form-item mrbo0">
@@ -639,7 +680,7 @@ include_once('./public/header.php');
                                                 <span class="red">*</span>宝贝链接
                                             </label>
                                             <div class="layui-input-block">
-                                                <input type="text" name="step5_link1" class="layui-input">
+                                                <input type="text" name="step5_link1" value="<?php echo $info['step5_link1'];?>" class="layui-input">
                                             </div>
                                         </div>
                                         -----------------------------------------------------------------------------------
@@ -648,7 +689,7 @@ include_once('./public/header.php');
                                                 <span class="red">*</span>店铺名称
                                             </label>
                                             <div class="layui-input-block">
-                                                <input type="text" name="step5_name2" class="layui-input">
+                                                <input type="text" name="step5_name2" value="<?php echo $info['step5_name2'];?>" class="layui-input">
                                             </div>
                                         </div>
                                         <div class="layui-form-item mrbo0">
@@ -656,7 +697,7 @@ include_once('./public/header.php');
                                                 <span class="red">*</span>淘 口 令
                                             </label>
                                             <div class="layui-input-block">
-                                                <input type="text" name="step5_pass2" class="layui-input">
+                                                <input type="text" name="step5_pass2" value="<?php echo $info['step5_pass2'];?>" class="layui-input">
                                             </div>
                                         </div>
                                         <div class="layui-form-item mrbo0 ">
@@ -664,7 +705,7 @@ include_once('./public/header.php');
                                                 <span class="red">*</span>宝贝链接
                                             </label>
                                             <div class="layui-input-block">
-                                                <input type="text" name="step5_link2" class="layui-input">
+                                                <input type="text" name="step5_link2" value="<?php echo $info['step5_link2'];?>" class="layui-input">
                                             </div>
                                         </div>
                                         -----------------------------------------------------------------------------------
@@ -673,7 +714,7 @@ include_once('./public/header.php');
                                                 <span class="red">*</span>店铺名称
                                             </label>
                                             <div class="layui-input-block">
-                                                <input type="text" name="step5_name3" class="layui-input">
+                                                <input type="text" name="step5_name3" value="<?php echo $info['step5_name3'];?>" class="layui-input">
                                             </div>
                                         </div>
                                         <div class="layui-form-item mrbo0">
@@ -681,7 +722,7 @@ include_once('./public/header.php');
                                                 <span class="red">*</span>淘 口 令
                                             </label>
                                             <div class="layui-input-block">
-                                                <input type="text" name="step5_pass3" class="layui-input">
+                                                <input type="text" name="step5_pass3" value="<?php echo $info['step5_pass3'];?>" class="layui-input">
                                             </div>
                                         </div>
                                         <div class="layui-form-item mrbo0">
@@ -689,7 +730,7 @@ include_once('./public/header.php');
                                                 <span class="red">*</span>宝贝链接
                                             </label>
                                             <div class="layui-input-block">
-                                                <input type="text" name="step5_link3" class="layui-input">
+                                                <input type="text" name="step5_link3" value="<?php echo $info['step5_link3'];?>" class="layui-input">
                                             </div>
                                         </div>
                                         -----------------------------------------------------------------------------------
@@ -705,7 +746,7 @@ include_once('./public/header.php');
                                         <div class="layui-form-item layui-form-text">
                                             <label class="layui-form-label wit100">备注说明:</label>
                                             <div class="layui-input-block">
-                                                <textarea class="layui-textarea" name="step6_note" placeholder="重要！如果对用户有特别的要求，请在备注里注明，用户在做任务的时候会看到，最多不能超过300字（任务备注只是商家要求，我们只能做到传达给用户但不会强制用户按要求操作"></textarea>
+                                                <textarea class="layui-textarea" name="step6_note" placeholder="重要！如果对用户有特别的要求，请在备注里注明，用户在做任务的时候会看到，最多不能超过300字（任务备注只是商家要求，我们只能做到传达给用户但不会强制用户按要求操作"><?php echo $info['step6_note'];?></textarea>
                                             </div>
                                         </div>
                                         <button class="btn-green" type="submit">下一步</button>

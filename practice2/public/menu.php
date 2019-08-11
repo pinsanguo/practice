@@ -68,6 +68,86 @@ $userId=$_SESSION['shopUserID'];
                     </dd>
                 </dl>
             </li>
+            <?php }else if($userRole == 'shopUser3'){?>
+            <li data-name="dealer" class="layui-nav-item">
+                <a href="javascript:;" lay-tips="账号管理" lay-direction="2">
+                    <i class="layui-icon layui-icon-template"></i>
+                    <cite>账号管理</cite>
+                </a>
+                <dl class="layui-nav-child">
+                    <dd data-name="console">
+                        <a lay-href="/admin/shopUser.php">商家账号</a>
+                    </dd>
+                </dl>
+                <dl class="layui-nav-child">
+                    <dd data-name="console">
+                        <a lay-href="userInfo2.php">用户账号</a>
+                    </dd>
+                </dl>
+                <dl class="layui-nav-child">
+                    <dd data-name="console">
+                        <a lay-href="userInfo2.php">用户审核</a>
+                    </dd>
+                </dl>
+            </li>
+            <li data-name="dealer" class="layui-nav-item">
+                <a href="javascript:;" lay-tips="任务管理" lay-direction="2">
+                    <i class="layui-icon layui-icon-template"></i>
+                    <cite>任务管理</cite>
+                </a>
+                <dl class="layui-nav-child">
+                    <dd data-name="console">
+                        <a lay-href="userInfo2.php">商家任务</a>
+                    </dd>
+                </dl>
+                <dl class="layui-nav-child">
+                    <dd data-name="console">
+                        <a lay-href="userInfo2.php">用户任务</a>
+                    </dd>
+                </dl>
+            </li>
+            <li data-name="dealer" class="layui-nav-item">
+                <a href="javascript:;" lay-tips="资金审核" lay-direction="2">
+                    <i class="layui-icon layui-icon-template"></i>
+                    <cite>资金审核</cite>
+                </a>
+                <dl class="layui-nav-child">
+                    <dd data-name="console">
+                        <a lay-href="userInfo2.php">商家审核</a>
+                    </dd>
+                </dl>
+                <dl class="layui-nav-child">
+                    <dd data-name="console">
+                        <a lay-href="userInfo2.php">用户审核</a>
+                    </dd>
+                </dl>
+                <dl class="layui-nav-child">
+                    <dd data-name="console">
+                        <a lay-href="userInfo2.php">商家账号设置</a>
+                    </dd>
+                </dl>
+            </li>
+            <li data-name="dealer" class="layui-nav-item">
+                <a href="javascript:;" lay-tips="佣金设置" lay-direction="2">
+                    <i class="layui-icon layui-icon-template"></i>
+                    <cite>佣金设置</cite>
+                </a>
+                <dl class="layui-nav-child">
+                    <dd data-name="console">
+                        <a lay-href="userInfo2.php">商家佣金</a>
+                    </dd>
+                </dl>
+                <dl class="layui-nav-child">
+                    <dd data-name="console">
+                        <a lay-href="userInfo2.php">用户佣金</a>
+                    </dd>
+                </dl>
+                <dl class="layui-nav-child">
+                    <dd data-name="console">
+                        <a lay-href="userInfo2.php">指定任务佣金</a>
+                    </dd>
+                </dl>
+            </li>
             <?php }?>
         </ul>
     </div>

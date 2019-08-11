@@ -63,6 +63,8 @@ $userId=$_SESSION['shopUserID'];
                 <dd onclick="logout()" style="text-align: center;"><a>退出</a></dd>
             <?php }else if($userRole == 'shopUser2'){?>
                 <dd onclick="logout2()" style="text-align: center;"><a>退出</a></dd>
+            <?php }else if($userRole == 'shopUser3'){?>
+                <dd onclick="logout3()" style="text-align: center;"><a>退出</a></dd>
             <?php }?>
         </dl>
     </li>
@@ -72,6 +74,9 @@ $userId=$_SESSION['shopUserID'];
         }
         function logout2(){
             window.location.href="userLogin2.php";
+        }
+        function logout3(){
+            window.location.href="userLogin3.php";
         }
     </script>
     <li class="layui-nav-item layui-hide-xs" lay-unselect>
