@@ -48,6 +48,11 @@ $userName=$_SESSION['shopUserName'];
                 ?>
                 <dl class="layui-nav-child">
                     <dd data-name="console">
+                        <a lay-href="rebate.php">返利明细</a>
+                    </dd>
+                </dl>
+                <dl class="layui-nav-child">
+                    <dd data-name="console">
                         <a lay-href="userList.php">用户管理</a>
                     </dd>
                 </dl>
