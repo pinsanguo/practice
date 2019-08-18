@@ -11,6 +11,13 @@ if(!empty($_POST['username'])){
             'username'=>$post['username'],
             'title'=>$post['title'],
         ]);
+    if(!empty($post['password'])){
+        $result2=$mysql->where(array('id'=>$post['userId']))->update('user',
+            [
+                'password'=>$post['password'],
+            ]);
+        $result=1;
+    }
     if ($result){
         die(json_encode(['msg'=>'修改用户信息成功','status'=>'ok',]));
     } else {
@@ -46,6 +53,12 @@ if(!empty($_GET['userId'])){
         <label class="layui-form-label"><span style="color:red">*</span>用户职称：</label>
         <div class="layui-input-block">
             <input type="text" name="title" value="<?php echo $info['title'];?>" lay-verify="required" placeholder="请输入用户职称" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label"><span style="color:red">*</span>重置用户密码：</label>
+        <div class="layui-input-block">
+            <input type="password" name="password" value="" class="layui-input">
         </div>
     </div>
     <div class="layui-form-item layui-hide">
