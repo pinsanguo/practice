@@ -17,97 +17,26 @@
                                             </a>
                                         </li>
                                         <li class="layui-col-xs3">
-                                            <a href="javascript:;">
-                                                <i class="layui-icon layui-icon-chart"></i>
-                                                <cite>主页二</cite>
-                                            </a>
-                                        </li>
-                                        <li class="layui-col-xs3">
-                                            <a href="javascript:;">
-                                                <i class="layui-icon layui-icon-template-1"></i>
-                                                <cite>弹层</cite>
-                                            </a>
-                                        </li>
-                                        <li class="layui-col-xs3">
-                                            <a href="javascript:;">
-                                                <i class="layui-icon layui-icon-chat"></i>
-                                                <cite>聊天</cite>
-                                            </a>
-                                        </li>
-                                        <li class="layui-col-xs3">
-                                            <a href="javascript:;">
-                                                <i class="layui-icon layui-icon-find-fill"></i>
-                                                <cite>进度条</cite>
-                                            </a>
-                                        </li>
-                                        <li class="layui-col-xs3">
-                                            <a href="javascript:;">
-                                                <i class="layui-icon layui-icon-survey"></i>
-                                                <cite>工单</cite>
-                                            </a>
-                                        </li>
-                                        <li class="layui-col-xs3">
-                                            <a href="javascript:;">
+                                            <a href="javascript:;" lay-href="proLink.php">
                                                 <i class="layui-icon layui-icon-user"></i>
-                                                <cite>用户</cite>
+                                                <cite>个人中心</cite>
                                             </a>
                                         </li>
                                         <li class="layui-col-xs3">
-                                            <a href="javascript:;">
-                                                <i class="layui-icon layui-icon-set"></i>
-                                                <cite>设置</cite>
+                                            <a href="javascript:;" lay-href="sale.php">
+                                                <i class="layui-icon layui-icon-template-1"></i>
+                                                <cite>进货系统</cite>
+                                            </a>
+                                        </li>
+                                        <li class="layui-col-xs3">
+                                            <a href="javascript:;" lay-href="organ.php">
+                                                <i class="layui-icon layui-icon-find-fill"></i>
+                                                <cite>组织架构</cite>
                                             </a>
                                         </li>
                                     </ul>
                                     <ul class="layui-row layui-col-space10">
-                                        <li class="layui-col-xs3">
-                                            <a href="javascript:;">
-                                                <i class="layui-icon layui-icon-set"></i>
-                                                <cite>我的资料</cite>
-                                            </a>
-                                        </li>
-                                        <li class="layui-col-xs3">
-                                            <a href="javascript:;">
-                                                <i class="layui-icon layui-icon-set"></i>
-                                                <cite>我的资料</cite>
-                                            </a>
-                                        </li>
-                                        <li class="layui-col-xs3">
-                                            <a href="javascript:;">
-                                                <i class="layui-icon layui-icon-set"></i>
-                                                <cite>我的资料</cite>
-                                            </a>
-                                        </li>
-                                        <li class="layui-col-xs3">
-                                            <a href="javascript:;">
-                                                <i class="layui-icon layui-icon-set"></i>
-                                                <cite>我的资料</cite>
-                                            </a>
-                                        </li>
-                                        <li class="layui-col-xs3">
-                                            <a href="javascript:;">
-                                                <i class="layui-icon layui-icon-set"></i>
-                                                <cite>我的资料</cite>
-                                            </a>
-                                        </li>
-                                        <li class="layui-col-xs3">
-                                            <a href="javascript:;">
-                                                <i class="layui-icon layui-icon-set"></i>
-                                                <cite>我的资料</cite>
-                                            </a>
-                                        </li>
-                                        <li class="layui-col-xs3">
-                                            <a href="javascript:;">
-                                                <i class="layui-icon layui-icon-set"></i>
-                                                <cite>我的资料</cite>
-                                            </a>
-                                        </li>
-                                        <li class="layui-col-xs3">
-                                            <a href="javascript:;">
-                                                <i class="layui-icon layui-icon-set"></i>
-                                                <cite>我的资料</cite>
-                                            </a>
-                                        </li>
+
                                     </ul>
                                 </div>
                             </div>

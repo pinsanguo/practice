@@ -16,7 +16,7 @@ if(!empty($_POST['sale_name'])){
     if(!empty($user1) && !empty($user1['0'])){
         if($user1['0']['title'] =='总裁' || $user1['0']['title'] =='董事'){
             if($post['number'] <= 70){
-                die(json_encode(['msg'=>'总裁或者董事每次进货不能少于70.','status'=>'error',]));
+                die(json_encode(['msg'=>'总裁或者董事每次进货不能少于等于70支.','status'=>'error',]));
             }
         }
     }
