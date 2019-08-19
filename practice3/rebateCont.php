@@ -3,17 +3,19 @@ session_start();
 require_once('./public/conf.php');
 $userId=$_SESSION['shopUserID'];
 $userId=0;
-//筛选搜索条件
-if(!empty($_GET['username'])){
-    $userName=$_GET['username'];
-    $user2=$mysql->field('id')
-        ->where('username="'.$userName.'"')
-        ->select('user');
-    if(!empty($user2)){
-        $where.=' and userId = ('.$user2['0']['id'].') ';
-    }
+if(!empty($_GET['shopUserID'])){
+    $userId=$_GET['shopUserID'];
 }
-
+$benren=$userId;
+$user1=$mysql->field('*')
+    ->where('id="'.$userId.'"')
+    ->select('user');
+$organ=[];
+$_userAll=getAllChild($userId);
+$userAll=array_merge($_userAll,$user1);
+$userIdArr=array_unique(array_column($userAll,'id'));
+$userIdStr=implode(',',$userIdArr);
+//筛选搜索条件
 $where='';
 $where.=' userId in ('.$userIdStr.') ';
 if(!empty($_GET['username'])){
@@ -53,20 +55,9 @@ if(!empty($_GET['tiemType'])){
         $where.=' and settletime <= ("'.$endTime.'") ';
     }
 }
-
-$benren=$userId;
-$user1=$mysql->field('*')
-    ->where('id="'.$userId.'"')
-    ->select('user');
-$organ=[];
-$_userAll=getAllChild($userId);
-$userAll=array_merge($_userAll,$user1);
-$userIdArr=array_unique(array_column($userAll,'id'));
-$userIdStr=implode(',',$userIdArr);
-
 $res = $mysql->field(array('*'))
     ->order(array('id'=>'desc'))
-        ->where($where)
+    ->where($where)
     ->select('sale');
 $userAll2=deal_with_arr($userAll,'id');
 $userChil=getChildId($userId);
