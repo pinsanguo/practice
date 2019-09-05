@@ -10,6 +10,7 @@ if(!empty($_POST['username'])){
         [
             'username'=>$post['username'],
             'title'=>$post['title'],
+            'parent'=>$post['parent'],
         ]);
     if(!empty($post['password'])){
         $result2=$mysql->where(array('id'=>$post['userId']))->update('user',
@@ -34,6 +35,10 @@ if(!empty($_GET['userId'])){
         ->select('user');
     $info=$res['0'];
 }
+$arrUser=$mysql->field(array('id','username','parent','title'))
+    ->order(array('id'=>'desc'))
+    ->select('user');
+$arrUserArr=deal_with_arr($arrUser,'id');
 ?>
 <?php include_once('./public/header.php');?>
 <div class="layui-form" lay-filter="layuiadmin-app-form-list" id="layuiadmin-app-form-list" style="padding: 20px 30px 0 0;">
@@ -53,6 +58,19 @@ if(!empty($_GET['userId'])){
         <label class="layui-form-label"><span style="color:red">*</span>用户职称：</label>
         <div class="layui-input-block">
             <input type="text" name="title" value="<?php echo $info['title'];?>" lay-verify="required" placeholder="请输入用户职称" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label"><span style="color:red">*</span>父级元素:</label>
+        <div class="layui-input-block">
+            <select name="parent" lay-filter="parent">
+                <option value="0">无上级</option>
+                <?php foreach($arrUser as $k1=>$v1){?>
+                    <option value="<?php echo $v1['id'];?>"
+                    <?php if($v1['id'] == $info['parent']){ echo "selected";}?>
+                    ><?php echo !empty($arrUserArr[$v1['id']]['username'])?$arrUserArr[$v1['id']]['username']:'无上级';?></option>
+                <?php }?>
+            </select>
         </div>
     </div>
     <div class="layui-form-item">
