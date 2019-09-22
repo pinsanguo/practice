@@ -64,7 +64,7 @@ $user1=$mysql->field('*')
                     <button class="layui-btn layuiadmin-btn-list" lay-submit lay-filter="shopSearch">
                         <i class="layui-icon layui-icon-search layuiadmin-button-btn"></i>
                     </button>
-<!--                    <button class="layui-btn layuiadmin-btn-list" lay-submit lay-filter="importShop">导出进货单</button>-->
+                    <button class="layui-btn layuiadmin-btn-list" lay-submit lay-filter="importShop">导出返利明细</button>
                 </div>
             </div>
         </div>
@@ -164,33 +164,7 @@ $user1=$mysql->field('*')
             var field2=JSON.stringify(field);
             console.log(field2);
             //执行重载
-            window.open("saleExcel2.php?file="+field2);
-            return false;
-            var saleCon='';
-            $.ajax({
-                url:"saleExcel2.php",
-                type:'GET',
-                data:field,
-                dataType:'json',
-                async:false,
-                success:function(data){
-                    saleCon=data.data;
-                }
-            });
-            console.log(typeof saleCon);
-            console.log(saleCon);
-            var saleCon2=JSON.stringify(saleCon);
-            $.ajax({
-                url:"saleExcel.php",
-                type:'POST',
-                data:"info="+saleCon2,
-                dataType:'json',
-                async:false,
-                success:function(data){
-                    console.log(data);
-                }
-            });
-            // console.log(saleCon);
+            window.open("rebateExcel.php?file="+field2);
         });
         var $ = layui.$, active = {
             batchdel: function(){
